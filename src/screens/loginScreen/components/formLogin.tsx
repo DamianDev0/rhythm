@@ -90,7 +90,6 @@ const styles = StyleSheet.create({
   imageContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   image: {
     width: width * 1,
