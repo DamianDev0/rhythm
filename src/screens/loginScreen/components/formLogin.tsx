@@ -20,7 +20,7 @@ import {
 } from '../../../styles/globalStyles';
 
 const LoginForm = () => {
-  const {handleGotoSignUp} = useLogin();
+  const {handleGotoSignUp, handleGoToHome} = useLogin();
 
   return (
     <ImageBackground
@@ -66,6 +66,7 @@ const LoginForm = () => {
                 title={'Login'}
                 backgroundColor="#000"
                 color="#FFFF"
+                onPress={handleGoToHome}
               />
             </View>
             <Text style={styles.loginText} onPress={handleGotoSignUp}>

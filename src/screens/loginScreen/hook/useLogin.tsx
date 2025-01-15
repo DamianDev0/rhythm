@@ -7,7 +7,11 @@ const useLogin = () => {
     navigation.navigate('SignUp');
   };
 
-  return {handleGotoSignUp};
+  const handleGoToHome = () => {
+    navigation.navigate('Private');
+  };
+
+  return {handleGotoSignUp, handleGoToHome};
 };
 
 export default useLogin;
