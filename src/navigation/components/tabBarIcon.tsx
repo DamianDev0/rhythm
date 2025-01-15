@@ -1,0 +1,38 @@
+import React from 'react';
+import {Image, StyleSheet} from 'react-native';
+import { height, width } from '../../styles/globalStyles';
+
+interface TabBarIconProps {
+  routeName: string;
+}
+
+const TabBarIcon: React.FC<TabBarIconProps> = ({routeName}) => {
+  let imageSource: any;
+
+  switch (routeName) {
+    case 'HomeTab':
+      imageSource = require('../../assets/img/home.png');
+      break;
+    case 'Screen1':
+      imageSource = require('../../assets/img/calendar2.png');
+      break;
+    case 'Screen2':
+      imageSource = require('../../assets/img/chart.png');
+      break;
+    default:
+      imageSource = require('../../assets/img/Calendar.png');
+  }
+
+  return <Image source={imageSource} style={[styles.icon]} />;
+};
+
+const styles = StyleSheet.create({
+  icon: {
+    width: width * 0.17,
+    height: height * 0.1,
+    resizeMode: 'contain',
+    marginBottom: 5,
+  },
+});
+
+export default TabBarIcon;
