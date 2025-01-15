@@ -36,7 +36,7 @@ const SignUpForm = () => {
           keyboardShouldPersistTaps="handled">
           <View style={styles.imageContainer}>
             <Image
-              source={require('../../../assets/img/Saly-3.png')}
+              source={require('../../../assets/img/register.png')}
               style={styles.image}
             />
           </View>
@@ -98,10 +98,10 @@ const styles = StyleSheet.create({
   imageContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop : 30
+    marginTop: 30,
   },
   image: {
-    width: width * 0.8,
+    width: width * 1.9,
     height: height * 0.4,
     resizeMode: 'contain',
   },

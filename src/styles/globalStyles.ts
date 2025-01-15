@@ -4,7 +4,6 @@ export const {width} = Dimensions.get('screen');
 
 export const {height} = Dimensions.get('screen');
 
-
 export const fontBold = 'Satoshi-Bold';
 
 export const fontLight = 'Satoshi-Light';
