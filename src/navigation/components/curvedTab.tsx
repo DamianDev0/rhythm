@@ -65,7 +65,7 @@ const PrivateTabs = () => {
           </TouchableOpacity>
         )}
         tabBar={renderTabBar}
-        width={375}
+        width={395}
         id="curvedBottomBar"
         borderColor="#000"
         borderWidth={1}

@@ -1,23 +1,49 @@
 import React from 'react';
-import {Text, StyleSheet} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { View, TextInput, Button, Text, FlatList } from 'react-native';
+import { useHabit } from './hook/useCreateHabit';
 
-const Screen2 = () => {
+
+const HabitForm: React.FC = () => {
+  const {
+    formState,
+    handleInputChange,
+    handleCreateHabit,
+    habits,
+    error,
+    success,
+  } = useHabit();
+
   return (
-    <LinearGradient
-      colors={['#fff', '#fff', '#fff']}
-      start={{x: 2, y: 0}}
-      end={{x: 0, y: 7}}
-      style={styles.gradient}>
-      <Text>Screen2</Text>
-    </LinearGradient>
+    <View>
+      <TextInput
+        placeholder="Name"
+        value={formState.name}
+        onChangeText={(value) => handleInputChange('name', value)}
+      />
+      <TextInput
+        placeholder="Description"
+        value={formState.description}
+        onChangeText={(value) => handleInputChange('description', value)}
+      />
+      <Button
+        title="Add Habit"
+        onPress={handleCreateHabit}
+      />
+      {error && <Text style={{ color: 'red' }}>{error}</Text>}
+      {success && <Text style={{ color: 'green' }}>{success}</Text>}
+
+      <FlatList
+        data={habits}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <View>
+            <Text>Name: {item.name}</Text>
+            <Text>Description: {item.description}</Text>
+          </View>
+        )}
+      />
+    </View>
   );
 };
 
-const styles = StyleSheet.create({
-  gradient: {
-    flex: 1,
-  },
-});
-
-export default Screen2;
+export default HabitForm;
