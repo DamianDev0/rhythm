@@ -1,24 +1,26 @@
 import React from 'react';
-import {Text, StyleSheet,} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { StyleSheet, ImageBackground } from 'react-native';
+import HeaderHabit from './components/HeaderHabit';
+import ChosseImage from './components/ChosseImage';
+import FormHabit from './components/formCreateHabit';
 
 const Screen1 = () => {
   return (
-    <LinearGradient
-    colors={['#fff', '#fff', '#fff']}
-    start={{x: 2, y: 0}}
-    end={{x: 0, y: 7}}
-      style={styles.gradient}>
-      <Text>Screen1</Text>
-    </LinearGradient>
+    <ImageBackground
+      source={require('../../assets/img/background.png')}
+      style={styles.background}>
+      <HeaderHabit />
+      <ChosseImage />
+      <FormHabit />
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  gradient: {
+  background: {
     flex: 1,
+ 
   },
-
 });
 
 export default Screen1;

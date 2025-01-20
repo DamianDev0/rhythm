@@ -15,3 +15,5 @@ export const primaryColor = '#954D0B';
 export const secondaryColor = '#000';
 
 export const terceryColor = '#FFF';
+
+export const fourColor = '#D09E7E' 
