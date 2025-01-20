@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   iconImage: {
-    marginRight: screenWidth * -0.04,
+    marginRight: screenWidth * -0.03,
     marginHorizontal: screenWidth * -0.05,
   },
   input: {
