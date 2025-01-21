@@ -1,11 +1,11 @@
 import 'react-native-reanimated';
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import MainRoutes from './src/navigation/mainNavigation';
 import Toast from 'react-native-toast-message';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {Provider} from 'react-redux';
+import store from './src/redux/store';
 // import database from './src/utils/database/SQLiteDatabase';
-
-
 
 // const resetDatabase = () => {
 //   database.transaction(tx => {
@@ -16,15 +16,16 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const App = () => {
   useEffect(() => {
-
     // resetDatabase();
   }, []);
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <MainRoutes />
-      <Toast />
-    </GestureHandlerRootView>
+    <Provider store={store}>
+      <GestureHandlerRootView style={{flex: 1}}>
+        <MainRoutes />
+        <Toast />
+      </GestureHandlerRootView>
+    </Provider>
   );
 };
 
