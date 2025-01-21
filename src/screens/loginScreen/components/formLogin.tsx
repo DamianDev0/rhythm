@@ -20,7 +20,8 @@ import {
 } from '../../../styles/globalStyles';
 
 const LoginForm = () => {
-  const {handleGotoSignUp, handleGoToHome} = useLogin();
+  const {credentials, handleInputChange, handleGotoSignUp, handleLogin} =
+    useLogin();
 
   return (
     <ImageBackground
@@ -50,6 +51,8 @@ const LoginForm = () => {
                 backgroundColor="rgba(0, 0, 0, 0.5)"
                 iconHeight={width * 0.7}
                 iconWidth={height * 0.08}
+                value={credentials.email}
+                onChangeText={text => handleInputChange('email', text)}
               />
               <InputGeneric
                 placeholder="Password"
@@ -59,18 +62,20 @@ const LoginForm = () => {
                 backgroundColor="rgba(0, 0, 0, 0.5)"
                 iconHeight={width * 0.7}
                 iconWidth={height * 0.08}
+                value={credentials.password}
+                onChangeText={text => handleInputChange('password', text)}
               />
             </View>
             <View style={styles.loginButton}>
               <GenericButton
-                title={'Login'}
+                title="Login"
                 backgroundColor="#000"
                 color="#FFFF"
-                onPress={handleGoToHome}
+                onPress={handleLogin}
               />
             </View>
             <Text style={styles.loginText} onPress={handleGotoSignUp}>
-              Don`t have an account?{' '}
+              Don't have an account?{' '}
               <Text style={styles.titleLogin}>Sign Up</Text>
             </Text>
             <Image
@@ -104,26 +109,12 @@ const styles = StyleSheet.create({
   formContainer: {
     paddingHorizontal: 20,
     justifyContent: 'center',
-    backgroundColor: 'rgba(255, 255, 255,0.15)',
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    width: width * 1,
-    height: height * 0.408,
+    width: width,
+    height: height * 0.45,
     shadowColor: '#000',
-  },
-  forgotPasswordText: {
-    color: '#FFFFFF',
-    marginTop: 10,
-    fontWeight: 'bold',
-    fontSize: 11,
-    marginHorizontal: 20,
-  },
-  titleLoginForm: {
-    color: '#FFFFFF',
-    fontSize: 20,
-    fontFamily: fontBold,
-    textAlign: 'center',
-    marginBottom: 20,
   },
   loginButton: {
     alignItems: 'center',
