@@ -20,7 +20,13 @@ import {
 } from '../../../styles/globalStyles';
 
 const SignUpForm = () => {
-  const {handleGotoLogin} = useRegister();
+  const {
+    credentials,
+    handleInputChange,
+    handleRegister,
+    loading,
+    handleGotoLogin,
+  } = useRegister();
 
   return (
     <ImageBackground
@@ -49,6 +55,8 @@ const SignUpForm = () => {
                 backgroundColor="rgba(0, 0, 0, 0.5)"
                 iconHeight={height * 0.03}
                 iconWidth={width * 0.19}
+                value={credentials.name}
+                onChangeText={text => handleInputChange('name', text)}
               />
               <InputGeneric
                 placeholder="Email"
@@ -58,6 +66,8 @@ const SignUpForm = () => {
                 backgroundColor="rgba(0, 0, 0, 0.5)"
                 iconHeight={height * 0.6}
                 iconWidth={width * 0.19}
+                value={credentials.email}
+                onChangeText={text => handleInputChange('email', text)}
               />
               <InputGeneric
                 placeholder="Password"
@@ -67,13 +77,17 @@ const SignUpForm = () => {
                 backgroundColor="rgba(0, 0, 0, 0.5)"
                 iconHeight={width * 0.7}
                 iconWidth={height * 0.08}
+                value={credentials.password}
+                onChangeText={text => handleInputChange('password', text)}
               />
             </View>
             <View style={styles.signupButton}>
               <GenericButton
-                title={'Sign Up'}
+                title={loading ? 'Sign up...' : 'Sign up'}
                 backgroundColor="#000"
                 color="#FFFF"
+                disabled={loading}
+                onPress={handleRegister}
               />
             </View>
             <Text style={styles.loginText} onPress={handleGotoLogin}>

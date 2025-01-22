@@ -10,7 +10,6 @@ export class UserRepositoryImp implements UserRepository {
     try {
       return await apiService.register(data);
     } catch (error) {
-      console.error('Error registering user:', error);
       throw error;
     }
   }
@@ -19,7 +18,6 @@ export class UserRepositoryImp implements UserRepository {
     try {
       return await apiService.login(data);
     } catch (error) {
-      console.error('Error logging in user:', error);
       throw error;
     }
   }
