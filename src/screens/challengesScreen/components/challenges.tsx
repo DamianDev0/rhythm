@@ -2,17 +2,28 @@ import React from 'react';
 import {FlatList, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import ChallengeCard from './challengeCard';
 import {fontBold} from '../../../styles/globalStyles';
-import { challenges } from '../../../utils/data';
-
+import {challenges} from '../../../utils/data';
+import useNavigation from '../../../hook/useNavigation';
 
 const ChallengesScreen: React.FC = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.screenContainer}>
       <Text style={styles.title}>Challenges</Text>
       <FlatList
         data={challenges}
         renderItem={({item}) => (
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('ChallengesDetails', {
+                id: item.id,
+                title: item.title,
+                description: item.description,
+                imageSource: item.imageSource,
+                timeline: item.timeline
+              })
+            }>
             <ChallengeCard
               imageSource={item.imageSource}
               title={item.title}
