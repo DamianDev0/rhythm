@@ -6,8 +6,7 @@ export type NavigationRoutes = {
   HomeTab: undefined
   Screen1: undefined
   Screen2: undefined
-  Public: undefined
-  Private: undefined
+  Challenges: undefined
 };
 
 //   export type AllRoutes = NavigationRoutes & TabRoutes;

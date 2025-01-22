@@ -19,6 +19,9 @@ const TabBarIcon: React.FC<TabBarIconProps> = ({routeName}) => {
     case 'Screen2':
       imageSource = require('../../assets/img/chart.png');
       break;
+    case 'Challenges':
+      imageSource = require('../../assets/img/challenges.png');
+      break;
     default:
       imageSource = require('../../assets/img/Calendar.png');
   }
