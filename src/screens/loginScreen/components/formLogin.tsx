@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     width: width,
-    height: height * 0.45,
+    height: height * 0.407,
     shadowColor: '#000',
   },
   loginButton: {
