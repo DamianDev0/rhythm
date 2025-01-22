@@ -20,7 +20,7 @@ import {
 } from '../../../styles/globalStyles';
 
 const LoginForm = () => {
-  const {credentials, handleInputChange, handleGotoSignUp, handleLogin} =
+  const {credentials, handleInputChange, handleGotoSignUp, handleLogin, loading} =
     useLogin();
 
   return (
@@ -68,10 +68,11 @@ const LoginForm = () => {
             </View>
             <View style={styles.loginButton}>
               <GenericButton
-                title="Login"
+             title={loading ? 'Logging in...' : 'Login'}
                 backgroundColor="#000"
                 color="#FFFF"
                 onPress={handleLogin}
+                disabled={loading}
               />
             </View>
             <Text style={styles.loginText} onPress={handleGotoSignUp}>
