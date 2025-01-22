@@ -52,6 +52,7 @@ const useLogin = () => {
           type: 'success',
           text1: 'Success',
           text2: 'Logged in successfully.',
+          position: 'top',
         });
         handleGoToHome();
       } else {
