@@ -12,6 +12,7 @@ import HomeScreen from '../../screens/homeScreen/homeScreen';
 import Screen1 from '../../screens/screen1/screen1';
 import Screen2 from '../../screens/screen2/screen2';
 import TabBarIcon from './tabBarIcon';
+import ChallengesScreen from '../../screens/challengesScreen/challengesScreen';
 
 const PrivateTabs = () => {
   const renderTabBarIcon = ({
@@ -48,47 +49,52 @@ const PrivateTabs = () => {
   };
 
   return (
-      <CurvedBottomBar.Navigator
-        type="DOWN"
-        style={styles.bottomBar}
-        shadowStyle={styles.shadow}
-        height={60}
-        circleWidth={60}
-        bgColor="#000"
-        initialRouteName="HomeTab"
-        renderCircle={({ navigate } : any) => (
-          <TouchableOpacity
-            style={styles.circleButtonContainer}
-            onPress={() => navigate('HomeTab')}
-          >
-            <TabBarIcon routeName="HomeTab" />
-          </TouchableOpacity>
-        )}
-        tabBar={renderTabBar}
-        width={395}
-        id="curvedBottomBar"
-        borderColor="#000"
-        borderWidth={1}
-        backBehavior="none">
-        <CurvedBottomBar.Screen
-          name="Screen1"
-          position="LEFT"
-          component={Screen1}
-          options={{ headerShown: false }}
-        />
-        <CurvedBottomBar.Screen
-          name="HomeTab"
-          position="CENTER"
-          component={HomeScreen}
-          options={{ headerShown: false }}
-        />
-        <CurvedBottomBar.Screen
-          name="Screen2"
-          position="RIGHT"
-          component={Screen2}
-          options={{ headerShown: false }}
-        />
-      </CurvedBottomBar.Navigator>
+    <CurvedBottomBar.Navigator
+      type="DOWN"
+      style={styles.bottomBar}
+      shadowStyle={styles.shadow}
+      height={55}
+      circleWidth={60}
+      bgColor="#000"
+      initialRouteName="HomeTab"
+      renderCircle={({navigate}: any) => (
+        <TouchableOpacity
+          style={styles.circleButtonContainer}
+          onPress={() => navigate('HomeTab')}>
+          <TabBarIcon routeName="HomeTab" />
+        </TouchableOpacity>
+      )}
+      tabBar={renderTabBar}
+      width={395}
+      id="curvedBottomBar"
+      borderColor="#000"
+      borderWidth={1}
+      backBehavior="none">
+      <CurvedBottomBar.Screen
+        name="Screen1"
+        position="LEFT"
+        component={Screen1}
+        options={{headerShown: false}}
+      />
+      <CurvedBottomBar.Screen
+        name="HomeTab"
+        position="CENTER"
+        component={HomeScreen}
+        options={{headerShown: false}}
+      />
+      <CurvedBottomBar.Screen
+        name="Screen2"
+        position="RIGHT"
+        component={Screen2}
+        options={{headerShown: false}}
+      />
+      <CurvedBottomBar.Screen
+        name="Challenges"
+        position="LEFT"
+        component={ChallengesScreen}
+        options={{headerShown: false}}
+      />
+    </CurvedBottomBar.Navigator>
   );
 };
 
@@ -125,7 +131,7 @@ const styles = StyleSheet.create({
   circleButtonContainer: {
     width: 60,
     height: 60,
-    bottom: 30,
+    bottom: 28,
     borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
