@@ -1,32 +1,28 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 import {View, StyleSheet, Text} from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
-
 import {width, height, fontBold} from '../../../styles/globalStyles';
 import ChallengeCard from './ChallengeCard';
+import moment from 'moment';
+import {RootState} from '../../../redux/store';
 
 const ChallengeCarousel = () => {
-  const challenges = [
-    {
-      title: 'Eat healthy 7 Days',
-      imageSource: require('../../../assets/img/food.png'),
-      status: 'In Progress',
-    },
-    {
-      title: 'Stop drinking 7 Days',
-      imageSource: require('../../../assets/img/drink.png'),
-      status: 'In Progress',
-    },
-    {
-      title: 'Stop drinking 7 Days',
-      imageSource: require('../../../assets/img/drink.png'),
-      status: 'In Progress',
-    },
-  ];
+  const challengesInProgress = useSelector(
+    (state: RootState) => state.challenge.challengesInProgress,
+  );
+
+  const challenges = challengesInProgress.map(progress => ({
+    title: `${progress.title} - ${
+      7 - moment().diff(moment(progress.startDate), 'days')
+    } days left`,
+    imageSource: progress.imageSource,
+    status: 'In Progress',
+  }));
 
   return (
     <View style={styles.carouselContainer}>
-        <View style={styles.titleContainer}>
+      <View style={styles.titleContainer}>
         <Text style={styles.title}>Your Challenges</Text>
       </View>
       <Carousel

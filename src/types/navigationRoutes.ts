@@ -7,6 +7,7 @@ export type NavigationRoutes = {
   Screen1: undefined
   Screen2: undefined
   Challenges: undefined
+  ChallengesDetails : {id: string, imageSource: string, title: string,  description: string, timeline: {time: string, title: string, description: string}[];}
 };
 
 //   export type AllRoutes = NavigationRoutes & TabRoutes;
