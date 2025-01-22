@@ -1,24 +1,29 @@
 import React from 'react';
-import {Text, StyleSheet,} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import {StyleSheet, ImageBackground} from 'react-native';
+import Calendar from './components/Calendar';
+import HeaderHome from './components/Header';
+import CardHome from './components/cardHome';
+import HabitsHome from './components/Habits';
+import ChallengeCarousel from './components/carouselChallengesHome';
 
 const HomeScreen = () => {
   return (
-    <LinearGradient
-    colors={['#fff', '#fff', '#fff']}
-    start={{x: 2, y: 0}}
-    end={{x: 0, y: 15}}
-      style={styles.gradient}>
-      <Text>HomeScreen</Text>
-    </LinearGradient>
+    <ImageBackground
+      source={require('../../assets/img/background.png')}
+      style={styles.background}>
+        <HeaderHome />
+      <Calendar />
+      <CardHome />
+      <ChallengeCarousel />
+      <HabitsHome />
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  gradient: {
+  background: {
     flex: 1,
   },
-
 });
 
 export default HomeScreen;
