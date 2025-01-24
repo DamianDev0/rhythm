@@ -3,5 +3,5 @@ import {CreateHabitRequest} from '../entities/habit/request/createHabitRequest';
 
 export interface HabitRepository {
   createHabit(data: CreateHabitRequest): any;
-  allHabits(): Promise<Habit[]>;
+  allHabits(userId: string): Promise<Habit[]>;
 }

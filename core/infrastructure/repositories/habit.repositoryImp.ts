@@ -8,8 +8,8 @@ export class HabitRepositoryImp implements HabitRepository {
     return new Promise((resolve, reject) => {
       database.transaction(tx => {
         tx.executeSql(
-          'INSERT INTO habits (name, description, frecuency) VALUES (?, ?, ?)',
-          [data.name, data.description, data.frecuency],
+          'INSERT INTO habits (name, description, frecuency, userId) VALUES (?, ?, ?, ?)',
+          [data.name, data.description, data.frecuency, data.userId],
           (tx, results) => {
             if (results.rowsAffected > 0) {
               resolve(true);
@@ -25,12 +25,12 @@ export class HabitRepositoryImp implements HabitRepository {
     });
   }
 
-  async allHabits(): Promise<Habit[]> {
+  async allHabits(userId: string): Promise<Habit[]> {
     return new Promise((resolve, reject) => {
       database.transaction(tx => {
         tx.executeSql(
-          'SELECT * FROM habits',
-          [],
+          'SELECT * FROM habits WHERE userId = ?',
+          [userId],
           (tx, results) => {
             const habits: Habit[] = [];
             for (let i = 0; i < results.rows.length; i++) {
@@ -39,7 +39,9 @@ export class HabitRepositoryImp implements HabitRepository {
                 id: row.id,
                 name: row.name,
                 description: row.description,
+                image: row.image,
                 frecuency: row.frecuency,
+                userId: row.userId,
               });
             }
             resolve(habits);

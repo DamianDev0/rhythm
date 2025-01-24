@@ -1,8 +1,10 @@
 export const HabitTable = `
   CREATE TABLE IF NOT EXISTS habits (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
+    name TEXT NOT NULL,
+    image TEXT,
     description TEXT,
-    frecuency TEXT
+    frequency TEXT,
+    userId TEXT
   );
 `;
