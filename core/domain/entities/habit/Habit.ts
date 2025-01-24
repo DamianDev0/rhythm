@@ -5,4 +5,6 @@ export interface Habit {
   image?: string;
   frequency?: string;
   userId: string;
+  streak: number
+  lastCompleted: string
 }

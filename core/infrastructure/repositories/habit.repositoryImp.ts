@@ -48,9 +48,36 @@ export class HabitRepositoryImp implements HabitRepository {
                 image: row.image,
                 frequency: row.frequency,
                 userId: row.userId,
+                streak: row.streak,
+                lastCompleted: row.lastCompleted,
               });
             }
             resolve(habits);
+          },
+          error => {
+            reject(error);
+          },
+        );
+      });
+    });
+  }
+
+  async updateHabitStreak(
+    habitId: number,
+    streak: number,
+    lastCompleted: string,
+  ): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      database.transaction(tx => {
+        tx.executeSql(
+          'UPDATE habits SET streak = ?, lastCompleted = ? WHERE id = ?',
+          [streak, lastCompleted, habitId],
+          (tx, results) => {
+            if (results.rowsAffected > 0) {
+              resolve(true);
+            } else {
+              reject(new Error('Failed to update habit streak'));
+            }
           },
           error => {
             reject(error);

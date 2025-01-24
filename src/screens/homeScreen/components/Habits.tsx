@@ -1,5 +1,12 @@
 import React, {useCallback} from 'react';
-import {View, Text, StyleSheet, FlatList, Image} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
 import useFetchHabits from '../hooks/useFetchHabits';
 import Loader from '../../../components/loader';
@@ -11,9 +18,11 @@ import {
   height,
   width,
 } from '../../../styles/globalStyles';
+import useNavigation from '../../../hook/useNavigation';
 
 const HabitsHome = () => {
   const {habits, loading, error, fetchHabits} = useFetchHabits();
+  const navigation = useNavigation();
 
   useFocusEffect(
     useCallback(() => {
@@ -41,13 +50,24 @@ const HabitsHome = () => {
           data={habits}
           keyExtractor={item => item.id.toString()}
           renderItem={({item}) => (
-            <View style={styles.card}>
+            <TouchableOpacity
+              style={styles.card}
+              onPress={() =>
+                navigation.navigate('HabitDetails', {
+                  id: item.id,
+                  name: item.name,
+                  description: item.description,
+                  image: item.image || '',
+                  streak: item.streak,
+                  lastCompleted: item.lastCompleted,
+                })
+              }>
               <Image source={{uri: item.image}} style={styles.image} />
               <View style={styles.textContainer}>
                 <Text style={styles.title}>{item.name}</Text>
                 <Text style={styles.description}>{item.description}</Text>
               </View>
-            </View>
+            </TouchableOpacity>
           )}
           showsVerticalScrollIndicator={false}
         />
