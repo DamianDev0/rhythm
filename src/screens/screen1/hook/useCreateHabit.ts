@@ -33,7 +33,23 @@ const useCreateHabit = () => {
 
   const handleSubmit = async () => {
     if (!token || !userId) {
-      console.error('Token or User ID is missing');
+      CustomToast({
+        type: 'error',
+        text1: 'Error',
+        text2: 'Token or User ID is missing.',
+        position: 'top',
+      });
+      return;
+    }
+
+    // Check if all fields are filled
+    if (!habitData.name || !habitData.description || !habitData.frequency || !habitData.image) {
+      CustomToast({
+        type: 'error',
+        text1: 'Error',
+        text2: 'All fields are required.',
+        position: 'top',
+      });
       return;
     }
 
@@ -61,10 +77,20 @@ const useCreateHabit = () => {
           image: '',
         });
       } else {
-        console.error('Token is invalid');
+        CustomToast({
+          type: 'error',
+          text1: 'Error',
+          text2: 'Token is invalid.',
+          position: 'top',
+        });
       }
     } catch (error) {
-      console.error('Error validating token or creating habit:', error);
+      CustomToast({
+        type: 'error',
+        text1: 'Error',
+        text2: 'Error validating token or creating habit.',
+        position: 'top',
+      });
     }
   };
 

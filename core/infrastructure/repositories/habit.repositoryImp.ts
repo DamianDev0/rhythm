@@ -8,8 +8,14 @@ export class HabitRepositoryImp implements HabitRepository {
     return new Promise((resolve, reject) => {
       database.transaction(tx => {
         tx.executeSql(
-          'INSERT INTO habits (name, description, frecuency, userId) VALUES (?, ?, ?, ?)',
-          [data.name, data.description, data.frecuency, data.userId],
+          'INSERT INTO habits (name, description, frequency, userId, image) VALUES (?, ?, ?, ?, ?)',
+          [
+            data.name,
+            data.description,
+            data.frequency,
+            data.userId,
+            data.image || null,
+          ],
           (tx, results) => {
             if (results.rowsAffected > 0) {
               resolve(true);
@@ -40,7 +46,7 @@ export class HabitRepositoryImp implements HabitRepository {
                 name: row.name,
                 description: row.description,
                 image: row.image,
-                frecuency: row.frecuency,
+                frequency: row.frequency,
                 userId: row.userId,
               });
             }

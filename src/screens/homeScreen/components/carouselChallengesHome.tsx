@@ -2,46 +2,55 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import {View, StyleSheet, Text} from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
-import {width, height, fontBold} from '../../../styles/globalStyles';
+import {width, height, fontBold, fontLight} from '../../../styles/globalStyles';
 import ChallengeCard from './ChallengeCard';
 import moment from 'moment';
 import {RootState} from '../../../redux/store';
 
 const ChallengeCarousel = () => {
+  const userId = useSelector((state: RootState) => state.token.userId);
   const challengesInProgress = useSelector(
     (state: RootState) => state.challenge.challengesInProgress,
   );
 
-  const challenges = challengesInProgress.map(progress => ({
-    title: `${progress.title} - ${
-      7 - moment().diff(moment(progress.startDate), 'days')
-    } days left`,
-    imageSource: progress.imageSource,
-    status: 'In Progress',
-  }));
+  const challenges = challengesInProgress
+    .filter(challenge => challenge.userId === userId)
+    .map(progress => ({
+      title: `${progress.title} - ${
+        7 - moment().diff(moment(progress.startDate), 'days')
+      } days left`,
+      imageSource: progress.imageSource,
+      status: 'In Progress',
+    }));
 
   return (
     <View style={styles.carouselContainer}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Your Challenges</Text>
       </View>
-      <Carousel
-        data={challenges}
-        renderItem={({item}) => (
-          <ChallengeCard
-            title={item.title}
-            imageSource={item.imageSource}
-            status={item.status}
-          />
-        )}
-        width={width * 0.99}
-        height={height * 0.18}
-        mode="parallax"
-        modeConfig={{
-          parallaxScrollingScale: 0.9,
-          parallaxScrollingOffset: 50,
-        }}
-      />
+      {challenges.length === 0 ? (
+        <Text style={styles.noChallengesText}>
+          You haven't started any challenges yet.
+        </Text>
+      ) : (
+        <Carousel
+          data={challenges}
+          renderItem={({item}) => (
+            <ChallengeCard
+              title={item.title}
+              imageSource={item.imageSource}
+              status={item.status}
+            />
+          )}
+          width={width * 0.99}
+          height={height * 0.18}
+          mode="parallax"
+          modeConfig={{
+            parallaxScrollingScale: 0.9,
+            parallaxScrollingOffset: 50,
+          }}
+        />
+      )}
     </View>
   );
 };
@@ -64,6 +73,12 @@ const styles = StyleSheet.create({
   titleContainer: {
     width: width,
     paddingLeft: 10,
+  },
+  noChallengesText: {
+    fontSize: 11,
+    fontFamily: fontLight,
+    color: '#fff',
+    marginTop: width * 0.15,
   },
 });
 

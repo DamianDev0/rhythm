@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   selectedIcon: {
     width: 40,
     height: 40,
-    backgroundColor: '#2c3e50',
+    backgroundColor: '#edbb99',
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
