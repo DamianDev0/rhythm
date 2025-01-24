@@ -47,7 +47,7 @@ const useLogin = () => {
       const response = await UserController.LoginUser({email, password});
 
       if (response.data.accessToken) {
-        dispatch(setToken(response.data.accessToken));
+        dispatch(setToken({ token: response.data.accessToken, userId: response.data.id }));
         CustomToast({
           type: 'success',
           text1: 'Success',

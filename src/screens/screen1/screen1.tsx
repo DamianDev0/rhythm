@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet, ImageBackground } from 'react-native';
+import {StyleSheet, ImageBackground} from 'react-native';
 import HeaderHabit from './components/HeaderHabit';
-import ChosseImage from './components/ChosseImage';
 import FormHabit from './components/formCreateHabit';
 
 const Screen1 = () => {
@@ -10,7 +9,7 @@ const Screen1 = () => {
       source={require('../../assets/img/background.png')}
       style={styles.background}>
       <HeaderHabit />
-      <ChosseImage />
+
       <FormHabit />
     </ImageBackground>
   );
@@ -19,7 +18,6 @@ const Screen1 = () => {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
- 
   },
 });
 

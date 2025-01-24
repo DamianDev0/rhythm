@@ -8,6 +8,6 @@ export const createHabit = (
   return habitRepository.createHabit(data);
 };
 
-export const allHabits = (habitRepository: HabitRepository) => {
-  return habitRepository.allHabits();
+export const allHabits = (habitRepository: HabitRepository, userId: string) => {
+  return habitRepository.allHabits(userId);
 };
