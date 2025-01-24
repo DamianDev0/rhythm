@@ -3,6 +3,8 @@ export interface Habit {
   name: string;
   description: string;
   image?: string;
-  frecuency?: string;
+  frequency?: string;
   userId: string;
+  streak: number
+  lastCompleted: string
 }

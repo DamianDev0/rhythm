@@ -11,3 +11,12 @@ export const createHabit = (
 export const allHabits = (habitRepository: HabitRepository, userId: string) => {
   return habitRepository.allHabits(userId);
 };
+
+export const updateHabitStreak = (
+  habitRepository: HabitRepository,
+  habitId: number,
+  streak: number,
+  lastCompleted: string,
+) => {
+  return habitRepository.updateHabitStreak(habitId, streak, lastCompleted);
+};

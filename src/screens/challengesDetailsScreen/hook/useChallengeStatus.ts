@@ -9,23 +9,30 @@ export const useChallengeStatus = (
   title: string,
 ) => {
   const dispatch = useDispatch();
+  const userId = useSelector((state: RootState) => state.token.userId);
   const challengesInProgress = useSelector(
     (state: RootState) => state.challenge.challengesInProgress,
   );
   const [isChallengeInProgress, setIsChallengeInProgress] = useState(false);
 
   useEffect(() => {
-    const challengeInProgress = challengesInProgress.some(
-      challenge => challenge.id === challengeId,
-    );
-    setIsChallengeInProgress(challengeInProgress);
-  }, [challengesInProgress, challengeId]);
+    if (userId) {
+      const challengeInProgress = challengesInProgress.some(
+        challenge =>
+          challenge.id === challengeId && challenge.userId === userId,
+      );
+      setIsChallengeInProgress(challengeInProgress);
+    }
+  }, [challengesInProgress, challengeId, userId]);
 
   const toggleChallengeStatus = () => {
+    if (!userId) {
+      return;
+    }
     if (isChallengeInProgress) {
-      dispatch(finishChallenge(challengeId));
+      dispatch(finishChallenge({challengeId, userId}));
     } else {
-      dispatch(startChallenge({id: challengeId, imageSource, title}));
+      dispatch(startChallenge({id: challengeId, imageSource, title, userId}));
     }
     setIsChallengeInProgress(!isChallengeInProgress);
   };

@@ -8,8 +8,14 @@ export class HabitRepositoryImp implements HabitRepository {
     return new Promise((resolve, reject) => {
       database.transaction(tx => {
         tx.executeSql(
-          'INSERT INTO habits (name, description, frecuency, userId) VALUES (?, ?, ?, ?)',
-          [data.name, data.description, data.frecuency, data.userId],
+          'INSERT INTO habits (name, description, frequency, userId, image) VALUES (?, ?, ?, ?, ?)',
+          [
+            data.name,
+            data.description,
+            data.frequency,
+            data.userId,
+            data.image || null,
+          ],
           (tx, results) => {
             if (results.rowsAffected > 0) {
               resolve(true);
@@ -40,11 +46,38 @@ export class HabitRepositoryImp implements HabitRepository {
                 name: row.name,
                 description: row.description,
                 image: row.image,
-                frecuency: row.frecuency,
+                frequency: row.frequency,
                 userId: row.userId,
+                streak: row.streak,
+                lastCompleted: row.lastCompleted,
               });
             }
             resolve(habits);
+          },
+          error => {
+            reject(error);
+          },
+        );
+      });
+    });
+  }
+
+  async updateHabitStreak(
+    habitId: number,
+    streak: number,
+    lastCompleted: string,
+  ): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      database.transaction(tx => {
+        tx.executeSql(
+          'UPDATE habits SET streak = ?, lastCompleted = ? WHERE id = ?',
+          [streak, lastCompleted, habitId],
+          (tx, results) => {
+            if (results.rowsAffected > 0) {
+              resolve(true);
+            } else {
+              reject(new Error('Failed to update habit streak'));
+            }
           },
           error => {
             reject(error);

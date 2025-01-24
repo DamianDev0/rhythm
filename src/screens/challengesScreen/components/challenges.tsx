@@ -21,7 +21,7 @@ const ChallengesScreen: React.FC = () => {
                 title: item.title,
                 description: item.description,
                 imageSource: item.imageSource,
-                timeline: item.timeline
+                timeline: item.timeline,
               })
             }>
             <ChallengeCard
