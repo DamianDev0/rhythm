@@ -33,9 +33,10 @@ const Streak: React.FC<StreakProps> = ({streak}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.5,
+    flex: 0.55,
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: width * 0.1,
   },
   card: {
     flex: 1,

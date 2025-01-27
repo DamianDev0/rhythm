@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: width * 0.05,
     marginBottom: 20,
-    height: height * 0.17,
+    height: height * 0.16,
   },
   textContainer: {
     flex: 1,

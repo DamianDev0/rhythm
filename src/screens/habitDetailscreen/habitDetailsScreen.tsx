@@ -5,8 +5,8 @@ import {Calendar} from 'react-native-calendars';
 import HeaderHabitDetails from './components/HeaderHabitDetails';
 import Streak from './components/Streak';
 import useStreakLogic from './hooks/useStreakLogic';
-
-
+import {width} from '../../styles/globalStyles';
+import LinearGradient from 'react-native-linear-gradient';
 
 const HabitDetailsScreen = () => {
   const route = useRoute();
@@ -26,42 +26,50 @@ const HabitDetailsScreen = () => {
   });
 
   return (
-    <View style={styles.container}>
-      <HeaderHabitDetails
-        name={item.name}
-        description={item.description}
-        image={item.image}
-      />
+    <LinearGradient
+    colors={['#000000', '#D09E7E', '#000000']}
+    start={{x: 1, y: 2}}
+    end={{x: 1, y: 0.6}}
+        style={styles.gradientContainer}>
+      <View style={styles.container}>
+        <HeaderHabitDetails
+          name={item.name}
+          description={item.description}
+          image={item.image}
+        />
 
-      <Streak streak={streak} />
+        <Streak streak={streak} />
 
-      <Calendar
-        style={styles.calendar}
-        markedDates={markedDates}
-        onDayPress={(day: any) => markDayAsCompleted(day.dateString)}
-        theme={{
-          calendarBackground: '#FFF',
-          selectedDayBackgroundColor: '#4CAF50',
-          selectedDayTextColor: '#FFF',
-          todayTextColor: '#4CAF50',
-          arrowColor: '#4CAF50',
-        }}
-      />
-    </View>
+        <Calendar
+          style={styles.calendar}
+          markedDates={markedDates}
+          onDayPress={(day: any) => markDayAsCompleted(day.dateString)}
+          theme={{
+            calendarBackground: '#FFF',
+            selectedDayBackgroundColor: '#a9dfbf',
+            selectedDayTextColor: '#FFF',
+            todayTextColor: '#e59866',
+            arrowColor: '#edbb99',
+          }}
+        />
+      </View>
+    </LinearGradient>
   );
 };
 
 const styles = StyleSheet.create({
+  gradientContainer: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#FFF',
+    backgroundColor: 'transparent',
   },
   calendar: {
-
-    marginTop: 20,
-    borderRadius: 10,
-    elevation: 4,
+    marginTop: width * 0.02,
+    borderRadius: 5,
+    elevation: 8,
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.2,

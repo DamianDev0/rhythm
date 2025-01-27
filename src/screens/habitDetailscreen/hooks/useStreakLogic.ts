@@ -50,7 +50,7 @@ const useStreakLogic = ({
 
       setMarkedDates(prevDates => ({
         ...prevDates,
-        [date]: {selected: true, selectedColor: '#4CAF50'},
+        [date]: {selected: true, selectedColor: '#000'},
       }));
 
       CustomToast({
@@ -72,7 +72,7 @@ const useStreakLogic = ({
   useEffect(() => {
     if (lastCompleted) {
       setMarkedDates({
-        [lastCompleted]: {selected: true, selectedColor: '#4CAF50'},
+        [lastCompleted]: {selected: true, selectedColor: '#000'},
       });
     }
   }, [lastCompleted]);

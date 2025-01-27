@@ -9,7 +9,16 @@ const database = SQLite.openDatabase(
   () => {
     console.log('Database opened successfully');
     database.transaction(tx => {
-      tx.executeSql(HabitTable);
+      tx.executeSql(
+        HabitTable,
+        [],
+        () => {
+          console.log('Table "habits" created successfully');
+        },
+        error => {
+          console.error('Error creating table "habits":', error);
+        },
+      );
     });
   },
   error => console.error('Error opening database:', error),
