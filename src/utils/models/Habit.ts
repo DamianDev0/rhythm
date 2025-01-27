@@ -5,7 +5,7 @@ export const HabitTable = `
     image TEXT,
     description TEXT,
     frequency TEXT,
-    userId TEXT
+    userId TEXT,
     streak INTEGER DEFAULT 0,
     lastCompleted TEXT
   );
