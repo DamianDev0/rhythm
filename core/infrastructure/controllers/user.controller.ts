@@ -33,12 +33,10 @@ export class UserController {
 
   static async ValidateToken(token: string): Promise<TokenValidateResponse> {
     try {
-      console.log('Validating token in UserController:', token);  // Añade log
       const response = await ValidateToken(userRepository, token);
-      console.log('Token validation result:', response);  // Añade log de la respuesta
       return response;
     } catch (error) {
-      console.error('Token validation failed:', error);  // Añade log de error
+      console.error('Token validation failed:', error);
       throw new Error('Token validation failed');
     }
   }
