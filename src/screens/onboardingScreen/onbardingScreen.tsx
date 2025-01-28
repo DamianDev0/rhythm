@@ -22,11 +22,13 @@ import {
   terceryColor,
   width,
 } from '../../styles/globalStyles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const OnboardingScreen = () => {
   const navigation = useNavigation();
 
   const handleSkipOrDone = async () => {
+    await AsyncStorage.setItem('onboardingCompleted', 'true');
     navigation.navigate('Login');
   };
 
