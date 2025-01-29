@@ -1,10 +1,10 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../redux/store';
-import { useState } from 'react';
-import { CreateHabitRequest } from '../../../../core/domain/entities/habit/request/createHabitRequest';
-import { HabitController } from '../../../../core/infrastructure/controllers/habit.controller';
-import { UserController } from '../../../../core/infrastructure/controllers/user.controller';
-import { CustomToast } from '../../../components/toastComponent';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../../redux/store';
+import {useState} from 'react';
+import {CreateHabitRequest} from '../../../../core/domain/entities/habit/request/createHabitRequest';
+import {HabitController} from '../../../../core/infrastructure/controllers/habit.controller';
+import {UserController} from '../../../../core/infrastructure/controllers/user.controller';
+import {CustomToast} from '../../../components/toastComponent';
 
 const useCreateHabit = () => {
   const token = useSelector((state: RootState) => state.token.token);
@@ -21,6 +21,13 @@ const useCreateHabit = () => {
     setHabitData({
       ...habitData,
       [name]: value,
+    });
+  };
+
+  const handleFrequencyChange = (value: string | null) => {
+    setHabitData({
+      ...habitData,
+      frequency: value || '',
     });
   };
 
@@ -42,8 +49,12 @@ const useCreateHabit = () => {
       return;
     }
 
-    // Check if all fields are filled
-    if (!habitData.name || !habitData.description || !habitData.frequency || !habitData.image) {
+    if (
+      !habitData.name ||
+      !habitData.description ||
+      !habitData.frequency ||
+      !habitData.image
+    ) {
       CustomToast({
         type: 'error',
         text1: 'Error',
@@ -60,6 +71,8 @@ const useCreateHabit = () => {
         const habitRequest: CreateHabitRequest = {
           ...habitData,
           userId: userId,
+          streak: 0,
+          lastCompleted: '',
         };
 
         await HabitController.CreateHabit(habitRequest);
@@ -97,6 +110,7 @@ const useCreateHabit = () => {
   return {
     habitData,
     handleInputChange,
+    handleFrequencyChange,
     handleImageChange,
     handleSubmit,
   };

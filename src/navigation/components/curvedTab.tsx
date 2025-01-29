@@ -9,10 +9,10 @@ import {
 } from 'react-native';
 import {CurvedBottomBar} from 'react-native-curved-bottom-bar';
 import HomeScreen from '../../screens/homeScreen/homeScreen';
-import Screen1 from '../../screens/screen1/screen1';
 import Screen2 from '../../screens/screen2/screen2';
 import TabBarIcon from './tabBarIcon';
 import ChallengesScreen from '../../screens/challengesScreen/challengesScreen';
+import HabitScreen from '../../screens/habitScreen/habitScreen';
 
 const PrivateTabs = () => {
   const renderTabBarIcon = ({
@@ -73,7 +73,7 @@ const PrivateTabs = () => {
       <CurvedBottomBar.Screen
         name="Screen1"
         position="LEFT"
-        component={Screen1}
+        component={HabitScreen}
         options={{headerShown: false}}
       />
       <CurvedBottomBar.Screen

@@ -17,6 +17,7 @@ const HabitDetailsScreen = () => {
     image: string;
     streak: number;
     lastCompleted: string;
+    frequency: string;
   };
 
   const {streak, markedDates, markDayAsCompleted} = useStreakLogic({
@@ -27,15 +28,16 @@ const HabitDetailsScreen = () => {
 
   return (
     <LinearGradient
-    colors={['#000000', '#D09E7E', '#000000']}
-    start={{x: 1, y: 2}}
-    end={{x: 1, y: 0.6}}
-        style={styles.gradientContainer}>
+      colors={['#000000', '#D09E7E', '#000000']}
+      start={{x: 1, y: 2}}
+      end={{x: 1, y: 0.6}}
+      style={styles.gradientContainer}>
       <View style={styles.container}>
         <HeaderHabitDetails
           name={item.name}
           description={item.description}
           image={item.image}
+          frequency={item.frequency}
         />
 
         <Streak streak={streak} />
