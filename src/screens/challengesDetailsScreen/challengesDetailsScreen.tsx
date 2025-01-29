@@ -55,6 +55,7 @@ const ChallengesDetailsScreen = () => {
               backgroundColor: '#ccc',
               color: '#000',
               padding: 6,
+              fontSize: 12,
               borderRadius: 13,
               fontFamily: fontMedium,
             }}
@@ -63,7 +64,7 @@ const ChallengesDetailsScreen = () => {
               fontFamily: fontLight,
               fontSize: 12,
             }}
-            titleStyle={{color: '#FFF', fontSize: 14, fontFamily: fontBold}}
+            titleStyle={{color: '#000', fontSize: 14, fontFamily: fontBold}}
             innerCircle={'icon'}
             iconStyle={{
               height: 10,
@@ -111,25 +112,25 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: width * 0.05,
     marginBottom: 20,
-    height: height * 0.18,
+    height: height * 0.17,
   },
   textContainer: {
-    flex: 1,
+    flex: 0.7,
     justifyContent: 'center',
     alignItems: 'flex-start',
     marginLeft: width * 0.03,
   },
   image: {
-    flex: 1.5,
+    flex: 1,
     width: width * 1.8,
     height: height * 0.29,
     resizeMode: 'contain',
     marginBottom: 20,
   },
   title: {
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: fontBold,
-    color: '#FFF',
+    color: '#000',
     marginBottom: 10,
   },
   description: {
@@ -137,23 +138,12 @@ const styles = StyleSheet.create({
     color: '#FFF',
     textAlign: 'left',
     marginBottom: 20,
-    fontFamily: fontLight,
+    fontFamily: fontMedium,
   },
   timelineContainer: {
     flex: 1,
     width: width * 0.9,
     paddingTop: 20,
-  },
-  startButton: {
-    backgroundColor: '#28a745',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 5,
-  },
-  startButtonText: {
-    color: '#FFF',
-    fontSize: 16,
-    fontFamily: fontBold,
   },
 });
 

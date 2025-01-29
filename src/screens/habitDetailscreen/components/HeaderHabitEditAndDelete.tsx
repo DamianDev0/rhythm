@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import EditHabit from './editHabit';
 import DeleteHabit from './deleteHabit';
-import { width } from '../../../styles/globalStyles';
+import {width} from '../../../styles/globalStyles';
 
 interface HeaderHabitEditAndDeleteProps {
   habitId: number;
@@ -30,9 +30,10 @@ const styles = StyleSheet.create({
     flex: 0.3,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     width: width,
-    gap: width * 0.45
+    gap: width * 0.45,
+    paddingBottom: width * 0.02,
   },
 });
 

@@ -33,9 +33,9 @@ const DeleteHabit: React.FC<DeleteHabitProps> = ({habitId}) => {
         isVisible={modalVisible}
         onClose={toggleModal}
         height={500}
-        backgroundColor="#FFF">
+        backgroundColor="#f3ede7">
         <Image
-          source={require('../../../assets/img/chosee.png')}
+          source={require('../../../assets/img/delete.png')}
           style={styles.image}
         />
         <Text style={styles.confirmText}>
@@ -48,6 +48,7 @@ const DeleteHabit: React.FC<DeleteHabitProps> = ({habitId}) => {
             color="#FFF"
             backgroundColor="#000"
             width={150}
+            height={45}
           />
           <GenericButton
             title="Confirm"
@@ -56,6 +57,7 @@ const DeleteHabit: React.FC<DeleteHabitProps> = ({habitId}) => {
             color="#FFF"
             backgroundColor="#000"
             width={150}
+            height={45}
           />
         </View>
         {loading && <Loader />}

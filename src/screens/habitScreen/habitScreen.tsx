@@ -9,7 +9,6 @@ const HabitScreen = () => {
       source={require('../../assets/img/background.png')}
       style={styles.background}>
       <HeaderHabit />
-
       <FormHabit />
     </ImageBackground>
   );

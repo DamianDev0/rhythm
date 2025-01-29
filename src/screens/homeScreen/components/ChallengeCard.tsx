@@ -1,7 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ImageSourcePropType } from 'react-native';
+import {View, Text, StyleSheet, Image, ImageSourcePropType} from 'react-native';
 import moment from 'moment';
-import { width, fontBold, fontLight, fourColor, height } from '../../../styles/globalStyles';
+import {
+  width,
+  fontBold,
+  fontLight,
+  fourColor,
+  height,
+} from '../../../styles/globalStyles';
 
 interface ChallengeCardProps {
   title: string;
@@ -16,7 +22,9 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({
   status,
   startDate,
 }) => {
-  const daysLeft = startDate ? 7 - moment().diff(moment(startDate), 'days') : null;
+  const daysLeft = startDate
+    ? 7 - moment().diff(moment(startDate), 'days')
+    : null;
   return (
     <View style={styles.card}>
       <Image source={imageSource} style={styles.image} />
@@ -56,10 +64,10 @@ const styles = StyleSheet.create({
     gap: width * 0.05,
   },
   title: {
-    fontSize: 13,
+    fontSize: 11,
     width: width * 0.3,
     fontFamily: fontBold,
-    color: '#FFF',
+    color: '#000',
     marginBottom: 10,
   },
   status: {

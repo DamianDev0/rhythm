@@ -96,7 +96,8 @@ const styles = StyleSheet.create({
   },
   errorText: {
     color: 'red',
-    fontSize: 16,
+    fontSize: 12,
+    fontFamily: fontBold,
   },
   emptyContainer: {
     flex: 1,
@@ -122,9 +123,9 @@ const styles = StyleSheet.create({
     backgroundColor: fourColor,
     borderRadius: 10,
     padding: 10,
-    marginVertical: 5,
+    marginVertical: 7,
     width: width * 0.85,
-    height: height * 0.1,
+    height: height * 0.09,
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.2,
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: width * 0.15,
-    height: height * 0.065,
+    height: height * 0.079,
     borderRadius: 10,
   },
   textContainer: {
@@ -144,11 +145,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 12,
     fontFamily: fontBold,
-    color: '#FFF',
+    color: '#000',
+    marginBottom: 7,
   },
   description: {
     fontSize: 10,
-    color: 'rgba(255,255,255, 0.7)',
+    color: '#FFFF',
     fontFamily: fontMedium,
   },
 });

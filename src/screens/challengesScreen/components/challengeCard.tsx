@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontFamily: fontBold,
     marginBottom: 5,
-    color: '#FFF',
+    color: '#000',
     textAlign: 'center',
   },
   cardDescription: {

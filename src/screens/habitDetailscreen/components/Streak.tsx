@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import {
   fontBold,
-  fontLight,
+  fontMedium,
   fourColor,
   height,
   width,
@@ -33,10 +33,10 @@ const Streak: React.FC<StreakProps> = ({streak}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.55,
+    flex: 0.59,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: width * 0.1,
+    marginBottom: width * 0.06,
   },
   card: {
     flex: 1,
@@ -54,18 +54,19 @@ const styles = StyleSheet.create({
     gap: width * 0.02,
   },
   largeText: {
-    fontSize: 22,
-    color: '#FFFFFF',
+    fontSize: 20,
+    color: '#000',
     fontFamily: fontBold,
   },
   smallText: {
-    fontSize: 12,
+    fontSize: 11,
     color: '#FFFFFF',
-    fontFamily: fontLight,
+    fontFamily: fontMedium,
   },
   image: {
-    width: width * 0.45,
-    height: height * 0.18,
+    width: width * 0.7,
+    height: height * 0.163,
+    resizeMode: 'contain',
   },
 });
 

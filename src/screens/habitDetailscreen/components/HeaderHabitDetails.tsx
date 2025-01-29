@@ -35,6 +35,7 @@ const HeaderHabitDetails: React.FC<HeaderHabitDetailsProps> = ({
 
 const styles = StyleSheet.create({
   headerContainer: {
+    flex: 0.4,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     backgroundColor: fourColor,
     borderRadius: 10,
     padding: width * 0.05,
-    marginBottom: 20,
+    marginBottom: width * 0.09,
     height: height * 0.16,
   },
   textContainer: {
@@ -51,18 +52,18 @@ const styles = StyleSheet.create({
     gap: width * 0.03,
   },
   title: {
-    fontSize: 14,
+    fontSize: 15,
     fontFamily: fontBold,
-    color: '#FFF',
+    color: '#000',
     marginBottom: 5,
   },
   description: {
     fontSize: 11,
     fontFamily: fontMedium,
-    color: 'rgba(255, 255, 255, 0.7)',
+    color: '#FFF',
   },
   frequency: {
-    fontSize: 10,
+    fontSize: 12,
     fontFamily: fontMedium,
     color: '#000',
     textTransform: 'capitalize',

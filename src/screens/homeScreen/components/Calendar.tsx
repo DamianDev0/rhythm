@@ -56,20 +56,21 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     width: width * 0.14,
-    height: height * 0.07,
+    height: height * 0.067,
   },
   today: {
-    backgroundColor: '#8b4513',
+    backgroundColor: '#c26d30',
   },
   dateText: {
-    color: '#ffffff',
+    color: '#000',
     fontFamily: fontBold,
     fontSize: 11,
   },
   dateTextDay: {
     color: '#ffffff',
     fontFamily: fontLight,
-    fontSize: 15,
+    fontSize: 14,
+    marginTop: width * 0.01,
   },
 });
 

@@ -48,9 +48,9 @@ const EditHabit: React.FC<EditHabitProps> = ({habitId, habitData}) => {
         isVisible={modalVisible}
         onClose={toggleModal}
         height={600}
-        backgroundColor="#FFF">
+        backgroundColor="#f3ede7">
         <Image
-          source={require('../../../assets/img/avatar.png')}
+          source={require('../../../assets/img/edit.png')}
           style={styles.image}
         />
         <Text style={styles.modalTitle}>Edit Habit</Text>
@@ -93,6 +93,7 @@ const EditHabit: React.FC<EditHabitProps> = ({habitId, habitData}) => {
             color="#FFF"
             backgroundColor="#000"
             width={150}
+            height={45}
           />
         </View>
         {loading && <Loader />}
@@ -109,14 +110,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   modalTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: fontBold,
-    marginBottom: 20,
+    marginBottom: 10,
     color: '#000',
   },
   image: {
-    width: width * 0.7,
-    height: height * 0.2,
+    width: width * 0.9,
+    height: height * 0.25,
     resizeMode: 'cover',
     marginBottom: 20,
   },
@@ -126,7 +127,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonContainer: {
-    marginTop: 20,
+    marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'center',
   },
@@ -134,6 +135,8 @@ const styles = StyleSheet.create({
     color: 'red',
     textAlign: 'center',
     marginTop: 10,
+    fontSize: 12,
+    fontFamily: fontBold,
   },
 });
 

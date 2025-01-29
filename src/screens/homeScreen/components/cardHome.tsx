@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import {
   fontBold,
-  fontLight,
+  fontMedium,
   fourColor,
   height,
   width,
@@ -13,11 +13,13 @@ const CardHome = () => {
     <View style={styles.container}>
       <View style={styles.card}>
         <View style={styles.textContainer}>
-          <Text style={styles.largeText}>1 Day</Text>
-          <Text style={styles.smallText}>Your current streak</Text>
+          <Text style={styles.largeText}>Stay Committed</Text>
+          <Text style={styles.smallText}>
+            Keep going, progress starts with consistency!
+          </Text>
         </View>
         <Image
-          source={require('../../../assets/img/streak.png')}
+          source={require('../../../assets/img/homeavatars.png')}
           style={styles.image}
         />
       </View>
@@ -48,18 +50,19 @@ const styles = StyleSheet.create({
     gap: width * 0.02,
   },
   largeText: {
-    fontSize: 22,
-    color: '#FFFFFF',
+    fontSize: 15,
+    color: '#000',
     fontFamily: fontBold,
   },
   smallText: {
-    fontSize: 12,
+    fontSize: 10,
     color: '#FFFFFF',
-    fontFamily: fontLight,
+    fontFamily: fontMedium,
+    maxWidth: width * 0.5,
   },
   image: {
-    width: width * 0.45,
-    height: height * 0.18,
+    width: width * 0.3,
+    height: height * 0.132,
   },
 });
 
