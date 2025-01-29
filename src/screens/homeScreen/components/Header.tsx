@@ -19,7 +19,7 @@ const HeaderHome = () => {
     <View style={styles.container}>
       <View style={styles.avatarContainer}>
         <Image
-          source={require('../../../assets/img/avatar.png')}
+          source={require('../../../assets/img/avatar1.png')}
           style={styles.image}
         />
         <Text style={styles.text}>Schedule</Text>
@@ -49,11 +49,11 @@ const styles = StyleSheet.create({
   },
   image: {
     width: width * 0.1,
-    height: height * 0.045,
+    height: height * 0.05,
     marginRight: 5,
   },
   text: {
-    fontSize: 14,
+    fontSize: 13,
     color: '#FFF',
     fontFamily: fontBold,
   },

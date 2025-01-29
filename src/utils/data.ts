@@ -101,13 +101,19 @@ export const challenges = [
 ];
 
 export const images = [
-  'https://ucarecdn.com/3aaa8114-e7de-40b4-9e63-ab2b3924ec10/Diseosinttulo8.png',
   'https://ucarecdn.com/f40d7580-72a8-4271-827b-21633a1d29dd/cigarretes.png',
   'https://ucarecdn.com/724bddaf-ec66-4e03-a450-0718f3feca7c/doctor.png',
   'https://ucarecdn.com/218a06c0-9c66-4f91-bc6b-8f4ea86f1e9e/music.png',
   'https://ucarecdn.com/dd9f469d-c7a0-4487-a7df-ed527c8d27b2/water.png',
   'https://ucarecdn.com/663ed17b-1c37-4b88-812f-9006b39d980e/drink.png',
   'https://ucarecdn.com/b1da6b09-8c0a-4ea3-abb5-3cd354c2e8e1/read.png',
+  'https://ucarecdn.com/de6eb752-c177-4e5b-948f-b41b0f162a6e/sugar.png',
+  'https://ucarecdn.com/245755ca-cc36-462e-a4ba-7ee3c0f0779b/burger.png',
+  'https://ucarecdn.com/dc58a13b-68d9-43ca-8519-e98b9d08f4e5/couvefolha.png',
+  'https://ucarecdn.com/69687b8c-8257-41e6-98de-19d23711c4b5/sport.png',
+  'https://ucarecdn.com/260aad38-3f46-4eca-a2d6-c4edbbfd4837/yoga.png',
+  'https://ucarecdn.com/37f76256-ab72-49c0-bded-e4cb5ff8db77/box.png',
+  'https://ucarecdn.com/7442769a-11aa-4050-a4e0-3fe9d0c78f02/sleep.png',
 ];
 
 export const frequencyOptions = [

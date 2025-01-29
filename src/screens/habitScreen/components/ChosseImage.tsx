@@ -48,6 +48,8 @@ const ChosseImage = ({
               <Image source={{uri: item}} style={modalStyles.modalImage} />
             </TouchableOpacity>
           )}
+          scrollEnabled={true}
+          showsVerticalScrollIndicator={false}
           contentContainerStyle={modalStyles.flatListContainer}
         />
       </BottomSheet>
@@ -79,8 +81,8 @@ const modalStyles = StyleSheet.create({
     paddingVertical: 10,
   },
   modalImage: {
-    width: width * 0.3,
-    height: height * 0.15,
+    width: width * 0.28,
+    height: height * 0.13,
     margin: 5,
     borderRadius: 10,
   },

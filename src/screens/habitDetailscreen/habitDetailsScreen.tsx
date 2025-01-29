@@ -1,12 +1,11 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ImageBackground} from 'react-native';
 import {useRoute} from '@react-navigation/native';
 import {Calendar} from 'react-native-calendars';
 import HeaderHabitDetails from './components/HeaderHabitDetails';
 import Streak from './components/Streak';
 import useStreakLogic from './hooks/useStreakLogic';
-import {width} from '../../styles/globalStyles';
-import LinearGradient from 'react-native-linear-gradient';
+import {fontBold, fourColor, width} from '../../styles/globalStyles';
 import HeaderHabitEditAndDelete from './components/HeaderHabitEditAndDelete';
 
 const HabitDetailsScreen = () => {
@@ -28,51 +27,46 @@ const HabitDetailsScreen = () => {
   });
 
   return (
-    <LinearGradient
-      colors={['#000000', '#D09E7E', '#000000']}
-      start={{x: 1, y: 2}}
-      end={{x: 1, y: 0.6}}
-      style={styles.gradientContainer}>
+    <ImageBackground
+      source={require('../../assets/img/background.png')}
+      style={styles.backgroundImage}>
       <View style={styles.container}>
-      <HeaderHabitEditAndDelete
-          habitId={item.id}
-          habitData={item}
-        />
+        <HeaderHabitEditAndDelete habitId={item.id} habitData={item} />
         <HeaderHabitDetails
           name={item.name}
           description={item.description}
           image={item.image}
           frequency={item.frequency}
         />
-
         <Streak streak={streak} />
-
         <Calendar
           style={styles.calendar}
           markedDates={markedDates}
           onDayPress={(day: any) => markDayAsCompleted(day.dateString)}
           theme={{
-            calendarBackground: '#FFF',
+            calendarBackground: fourColor,
             selectedDayBackgroundColor: '#a9dfbf',
             selectedDayTextColor: '#FFF',
-            todayTextColor: '#e59866',
-            arrowColor: '#edbb99',
+            todayTextColor: '#000',
+            arrowColor: '#FFF',
+            textSectionTitleColor: '#000',
+            monthTextColor: '#000',
+            textDayFontFamily: fontBold,
           }}
         />
-
       </View>
-    </LinearGradient>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  gradientContainer: {
+  backgroundImage: {
     flex: 1,
+    paddingBottom: width * 0.05
   },
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: 'transparent',
   },
   calendar: {
     marginTop: width * 0.02,
