@@ -60,6 +60,7 @@ const HabitsHome = () => {
                   image: item.image || '',
                   streak: item.streak,
                   lastCompleted: item.lastCompleted,
+                  frequency: item.frequency || '',
                 })
               }>
               <Image source={{uri: item.image}} style={styles.image} />

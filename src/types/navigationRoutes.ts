@@ -21,6 +21,7 @@ export type NavigationRoutes = {
     image: string;
     streak: number;
     lastCompleted: string;
+    frequency: string
   };
 };
 

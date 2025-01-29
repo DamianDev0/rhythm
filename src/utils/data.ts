@@ -100,7 +100,6 @@ export const challenges = [
   },
 ];
 
-
 export const images = [
   'https://ucarecdn.com/3aaa8114-e7de-40b4-9e63-ab2b3924ec10/Diseosinttulo8.png',
   'https://ucarecdn.com/f40d7580-72a8-4271-827b-21633a1d29dd/cigarretes.png',
@@ -109,4 +108,11 @@ export const images = [
   'https://ucarecdn.com/dd9f469d-c7a0-4487-a7df-ed527c8d27b2/water.png',
   'https://ucarecdn.com/663ed17b-1c37-4b88-812f-9006b39d980e/drink.png',
   'https://ucarecdn.com/b1da6b09-8c0a-4ea3-abb5-3cd354c2e8e1/read.png',
+];
+
+export const frequencyOptions = [
+  {label: 'Every day', value: 'daily'},
+  {label: 'Every week', value: 'weekly'},
+  {label: 'Every 15 days', value: 'biweekly'},
+  {label: 'Every month', value: 'monthly'},
 ];

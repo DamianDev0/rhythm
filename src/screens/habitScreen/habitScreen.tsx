@@ -3,7 +3,7 @@ import {StyleSheet, ImageBackground} from 'react-native';
 import HeaderHabit from './components/HeaderHabit';
 import FormHabit from './components/formCreateHabit';
 
-const Screen1 = () => {
+const HabitScreen = () => {
   return (
     <ImageBackground
       source={require('../../assets/img/background.png')}
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Screen1;
+export default HabitScreen;

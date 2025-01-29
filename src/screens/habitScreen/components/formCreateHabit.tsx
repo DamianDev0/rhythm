@@ -11,10 +11,19 @@ import {height, width} from '../../../styles/globalStyles';
 import GenericButton from '../../../components/genericButton';
 import useCreateHabit from '../hook/useCreateHabit';
 import ChosseImage from './ChosseImage';
+import GenericDropdown from '../../../components/dropDown';
+import { frequencyOptions } from '../../../utils/data';
+
+
 
 const FormHabit = () => {
-  const {habitData, handleInputChange, handleSubmit, handleImageChange} =
-    useCreateHabit();
+  const {
+    habitData,
+    handleInputChange,
+    handleSubmit,
+    handleImageChange,
+    handleFrequencyChange,
+  } = useCreateHabit();
 
   return (
     <KeyboardAvoidingView
@@ -47,15 +56,13 @@ const FormHabit = () => {
               value={habitData.description}
               onChangeText={text => handleInputChange('description', text)}
             />
-            <InputGeneric
-              placeholder="Frequency"
-              backgroundColor="rgba(0, 0, 0, 0.5)"
-              iconImage={require('../../../assets/img/frecuency.png')}
-              iconHeight={width * 0.8}
-              iconWidth={height * 0.06}
-              width={width * 0.85}
-              value={habitData.frequency}
-              onChangeText={text => handleInputChange('frequency', text)}
+            <GenericDropdown
+              data={frequencyOptions}
+              selectedValue={habitData.frequency}
+              setSelectedValue={handleFrequencyChange}
+              placeholder="Select Frequency"
+              iconDropdown={require('../../../assets/img/frecuency.png')}
+              dropdownWidth={width * 0.85}
             />
             <View style={styles.buttonContainer}>
               <GenericButton
