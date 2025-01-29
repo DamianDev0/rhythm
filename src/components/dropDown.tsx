@@ -11,6 +11,7 @@ interface GenericDropdownProps {
   dropdownWidth?: number;
   dropdownHeight?: number;
   iconDropdown?: ImageSourcePropType;
+  value?: string;
 }
 
 const GenericDropdown: React.FC<GenericDropdownProps> = ({

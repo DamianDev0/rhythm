@@ -5,6 +5,8 @@ import {
   createHabit,
   allHabits,
   updateHabitStreak,
+  deleteHabit,
+  updateHabit,
 } from '../../application/useCases/habit.useCases';
 
 const habitRepository = new HabitRepositoryImp();
@@ -43,6 +45,29 @@ export class HabitController {
       return result;
     } catch (error) {
       console.error('Error updating habit streak:', error);
+      throw error;
+    }
+  }
+
+  static async DeleteHabit(habitId: number): Promise<boolean> {
+    try {
+      const result = await deleteHabit(habitRepository, habitId);
+      return result;
+    } catch (error) {
+      console.error('Error deleting habit:', error);
+      throw error;
+    }
+  }
+
+  static async EditHabit(
+    habitId: number,
+    data: Partial<CreateHabitRequest>,
+  ): Promise<boolean> {
+    try {
+      const result = await updateHabit(habitRepository, habitId, data);
+      return result;
+    } catch (error) {
+      console.error('Error editing habit:', error);
       throw error;
     }
   }

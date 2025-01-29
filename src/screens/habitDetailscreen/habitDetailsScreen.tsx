@@ -7,11 +7,12 @@ import Streak from './components/Streak';
 import useStreakLogic from './hooks/useStreakLogic';
 import {width} from '../../styles/globalStyles';
 import LinearGradient from 'react-native-linear-gradient';
+import HeaderHabitEditAndDelete from './components/HeaderHabitEditAndDelete';
 
 const HabitDetailsScreen = () => {
   const route = useRoute();
   const item = route.params as {
-    id: string;
+    id: number;
     name: string;
     description: string;
     image: string;
@@ -21,7 +22,7 @@ const HabitDetailsScreen = () => {
   };
 
   const {streak, markedDates, markDayAsCompleted} = useStreakLogic({
-    habitId: parseInt(item.id, 10),
+    habitId: item.id,
     initialStreak: item.streak,
     initialLastCompleted: item.lastCompleted,
   });
@@ -33,6 +34,10 @@ const HabitDetailsScreen = () => {
       end={{x: 1, y: 0.6}}
       style={styles.gradientContainer}>
       <View style={styles.container}>
+      <HeaderHabitEditAndDelete
+          habitId={item.id}
+          habitData={item}
+        />
         <HeaderHabitDetails
           name={item.name}
           description={item.description}
@@ -54,6 +59,7 @@ const HabitDetailsScreen = () => {
             arrowColor: '#edbb99',
           }}
         />
+
       </View>
     </LinearGradient>
   );
