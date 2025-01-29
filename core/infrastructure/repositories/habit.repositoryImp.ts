@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import database from '../../../src/utils/database/SQLiteDatabase';
 import {Habit} from '../../domain/entities/habit/Habit';
 import {CreateHabitRequest} from '../../domain/entities/habit/request/createHabitRequest';
@@ -77,6 +78,56 @@ export class HabitRepositoryImp implements HabitRepository {
               resolve(true);
             } else {
               reject(new Error('Failed to update habit streak'));
+            }
+          },
+          error => {
+            reject(error);
+          },
+        );
+      });
+    });
+  }
+
+  async deleteHabit(habitId: number): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      database.transaction(tx => {
+        tx.executeSql(
+          'DELETE FROM habits WHERE id = ?',
+          [habitId],
+          (tx, results) => {
+            if (results.rowsAffected > 0) {
+              resolve(true);
+            } else {
+              reject(new Error('Failed to delete habit'));
+            }
+          },
+          error => {
+            reject(error);
+          },
+        );
+      });
+    });
+  }
+
+  async updateHabit(
+    habitId: number,
+    data: Partial<CreateHabitRequest>,
+  ): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      database.transaction(tx => {
+        const fields = Object.keys(data)
+          .map(key => `${key} = ?`)
+          .join(', ');
+        const values = Object.values(data);
+
+        tx.executeSql(
+          `UPDATE habits SET ${fields} WHERE id = ?`,
+          [...values, habitId],
+          (tx, results) => {
+            if (results.rowsAffected > 0) {
+              resolve(true);
+            } else {
+              reject(new Error('Failed to update habit'));
             }
           },
           error => {

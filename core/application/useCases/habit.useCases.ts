@@ -20,3 +20,18 @@ export const updateHabitStreak = (
 ) => {
   return habitRepository.updateHabitStreak(habitId, streak, lastCompleted);
 };
+
+export const deleteHabit = (
+  habitRepository: HabitRepository,
+  habitId: number,
+) => {
+  return habitRepository.deleteHabit(habitId);
+};
+
+export const updateHabit = (
+  habitRepository: HabitRepository,
+  habitId: number,
+  data: Partial<CreateHabitRequest>,
+) => {
+  return habitRepository.updateHabit(habitId, data);
+};
