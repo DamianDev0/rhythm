@@ -2,6 +2,8 @@ import {useState} from 'react';
 import useNavigation from '../../../hook/useNavigation';
 import {CustomToast} from '../../../components/toastComponent';
 import {UserController} from '../../../../core/infrastructure/controllers/user.controller';
+import {RegisterResponse} from '../../../../core/domain/entities/user/response/registerResponse';
+import {ErrorResponse} from '../../../../core/domain/entities/user/response/errorResponse';
 
 const useSignUp = () => {
   const navigation = useNavigation();
@@ -38,13 +40,14 @@ const useSignUp = () => {
     setLoading(true);
 
     try {
-      const response = await UserController.RegisterUser({
-        name,
-        email,
-        password,
-      });
+      const response: RegisterResponse | ErrorResponse =
+        await UserController.RegisterUser({
+          name,
+          email,
+          password,
+        });
 
-      if (response.code === 201) {
+      if ('code' in response && response.code === 201) {
         CustomToast({
           type: 'success',
           text1: 'Success',
@@ -55,7 +58,7 @@ const useSignUp = () => {
         CustomToast({
           type: 'error',
           text1: 'Error',
-          text2: response?.message || 'Registration failed.',
+          text2: response.message || 'Registration failed.',
         });
       }
     } catch (error) {
