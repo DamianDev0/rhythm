@@ -1,9 +1,16 @@
-import { createReducer } from '@reduxjs/toolkit';
+import {createReducer} from '@reduxjs/toolkit';
 import moment from 'moment';
-import { finishChallenge, startChallenge } from './actions/actions';
+import {finishChallenge, startChallenge} from './actions/actions';
+import { ImageSourcePropType } from 'react-native';
 
 interface ChallengeState {
-  challengesInProgress: { id: string; startDate: string; imageSource: any; title: string; userId: string }[];
+  challengesInProgress: {
+    id: string;
+    startDate: string;
+    imageSource: ImageSourcePropType;
+    title: string;
+    userId: string;
+  }[];
 }
 
 const initialState: ChallengeState = {
@@ -23,7 +30,9 @@ const challengeReducer = createReducer(initialState, builder => {
 
   builder.addCase(finishChallenge, (state, action) => {
     state.challengesInProgress = state.challengesInProgress.filter(
-      challenge => challenge.id !== action.payload.challengeId || challenge.userId !== action.payload.userId
+      challenge =>
+        challenge.id !== action.payload.challengeId ||
+        challenge.userId !== action.payload.userId,
     );
   });
 });

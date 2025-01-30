@@ -1,10 +1,9 @@
 export const challenges = [
   {
     id: '1',
-    imageSource: require('../assets/img/food.png'),
+    imageSource: { uri: 'https://ucarecdn.com/1d1046cc-a440-4936-bbbe-daa58e46c456/food.png' },
     title: 'Eat Healthy',
-    description:
-      'Plan meals, build habits, stay motivated, and track your progress.',
+    description: 'Plan meals, build habits, stay motivated, and track your progress.',
     timeline: [
       {
         time: '07:00',
@@ -16,7 +15,7 @@ export const challenges = [
         title: 'Lunch',
         description: 'Salad with grilled chicken',
       },
-      {time: '15:00', title: 'Snack', description: 'A handful of nuts'},
+      { time: '15:00', title: 'Snack', description: 'A handful of nuts' },
       {
         time: '19:00',
         title: 'Dinner',
@@ -26,7 +25,7 @@ export const challenges = [
   },
   {
     id: '2',
-    imageSource: require('../assets/img/drink.png'),
+    imageSource: { uri: 'https://ucarecdn.com/7f855482-7d9e-40fc-b11c-04976647b1c7/drink.png' },
     title: 'Stop Drinking',
     description: 'Improve your health, boost energy, save money',
     timeline: [
@@ -40,16 +39,15 @@ export const challenges = [
         title: 'Hydration',
         description: 'Drink 2 liters of water',
       },
-      {time: '16:00', title: 'Healthy Snack', description: 'Fruit smoothie'},
-      {time: '20:00', title: 'Evening Relaxation', description: 'Read a book'},
+      { time: '16:00', title: 'Healthy Snack', description: 'Fruit smoothie' },
+      { time: '20:00', title: 'Evening Relaxation', description: 'Read a book' },
     ],
   },
   {
     id: '3',
-    imageSource: require('../assets/img/meditation.png'),
+    imageSource: { uri: 'https://ucarecdn.com/072abf11-8ef6-4eda-b978-9943308d07dd/meditation.png' },
     title: 'Meditation',
-    description:
-      'Reduce stress, improve focus, boost well-being, and find inner peace.',
+    description: 'Reduce stress, improve focus, boost well-being, and find inner peace.',
     timeline: [
       {
         time: '06:00',
@@ -75,10 +73,9 @@ export const challenges = [
   },
   {
     id: '4',
-    imageSource: require('../assets/img/sport.png'),
+    imageSource: { uri: 'https://ucarecdn.com/69687b8c-8257-41e6-98de-19d23711c4b5/sport.png' },
     title: 'Sport',
-    description:
-      'Boost energy, build strength, improve health, and feel your best.',
+    description: 'Boost energy, build strength, improve health, and feel your best.',
     timeline: [
       {
         time: '09:00',
@@ -90,7 +87,7 @@ export const challenges = [
         title: 'Cardio Session',
         description: '45 minutes of cycling',
       },
-      {time: '17:00', title: 'Stretching', description: '30 minutes of yoga'},
+      { time: '17:00', title: 'Stretching', description: '30 minutes of yoga' },
       {
         time: '20:00',
         title: 'Cool Down',

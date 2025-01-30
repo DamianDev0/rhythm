@@ -7,7 +7,7 @@ import challengeReducer from './challengeSlice';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['token'],
+  whitelist: ['token', 'challenge'],
 };
 
 const rootReducer = combineReducers({
