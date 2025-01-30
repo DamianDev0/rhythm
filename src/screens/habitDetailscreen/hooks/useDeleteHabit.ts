@@ -46,6 +46,7 @@ export const useDeleteHabit = () => {
           type: 'success',
           text1: 'Habit deleted',
           text2: 'The habit was successfully deleted',
+          position: 'top',
         });
         navigation.navigate('Home');
       } else {

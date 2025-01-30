@@ -65,6 +65,7 @@ export const useEditHabit = (
           type: 'success',
           text1: 'Habit updated',
           text2: 'The habit was successfully updated',
+          position: 'top',
         });
 
         navigation.navigate('Home');

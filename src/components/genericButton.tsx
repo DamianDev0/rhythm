@@ -10,6 +10,7 @@ interface GenericButtonProps {
   height?: number;
   backgroundColor?: string;
   color?: string;
+  loading?: boolean;
 }
 
 const GenericButton: React.FC<GenericButtonProps> = ({

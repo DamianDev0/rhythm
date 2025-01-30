@@ -13,17 +13,17 @@ const PrivateRoutes = () => {
       <Stack.Screen
         name="Home"
         component={PrivateTabs}
-        options={{headerShown: false}}
+        options={{headerShown: false, animation: 'slide_from_left'}}
       />
       <Stack.Screen
         name="ChallengesDetails"
         component={ChallengesDetailsScreen}
-        options={{headerShown: false}}
+        options={{headerShown: false, animation: 'slide_from_right'}}
       />
       <Stack.Screen
         name="HabitDetails"
         component={HabitDetailsScreen}
-        options={{headerShown: false}}
+        options={{headerShown: false, animation: 'slide_from_right'}}
       />
     </Stack.Navigator>
   );
