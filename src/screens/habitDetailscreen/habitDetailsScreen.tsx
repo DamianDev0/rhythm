@@ -62,7 +62,7 @@ const HabitDetailsScreen = () => {
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    paddingBottom: width * 0.05
+    paddingBottom: width * 0.05,
   },
   container: {
     flex: 1,
