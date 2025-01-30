@@ -1,9 +1,11 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import useNavigation from '../../../hook/useNavigation';
-import {setToken} from '../../../redux/tokenSlice';
-import {useDispatch} from 'react-redux';
-import {UserController} from '../../../../core/infrastructure/controllers/user.controller';
-import {CustomToast} from '../../../components/toastComponent';
+import { setToken } from '../../../redux/tokenSlice';
+import { useDispatch } from 'react-redux';
+import { UserController } from '../../../../core/infrastructure/controllers/user.controller';
+import { CustomToast } from '../../../components/toastComponent';
+import { LoginResponse } from '../../../../core/domain/entities/user/response/loginResponse';
+import { ErrorResponse } from '../../../../core/domain/entities/user/response/errorResponse';
 
 const useLogin = () => {
   const navigation = useNavigation();
@@ -17,7 +19,7 @@ const useLogin = () => {
   const [loading, setLoading] = useState(false);
 
   const handleInputChange = (field: string, value: string) => {
-    setCredentials(prev => ({...prev, [field]: value}));
+    setCredentials(prev => ({ ...prev, [field]: value }));
   };
 
   const handleGotoSignUp = () => {
@@ -29,7 +31,7 @@ const useLogin = () => {
   };
 
   const handleLogin = async () => {
-    const {email, password} = credentials;
+    const { email, password } = credentials;
 
     if (!email || !password) {
       CustomToast({
@@ -44,9 +46,9 @@ const useLogin = () => {
     setLoading(true);
 
     try {
-      const response = await UserController.LoginUser({email, password});
+      const response: LoginResponse | ErrorResponse = await UserController.LoginUser({ email, password });
 
-      if (response.data.accessToken) {
+      if ('data' in response) {
         dispatch(setToken({ token: response.data.accessToken, userId: response.data.id }));
         CustomToast({
           type: 'success',
@@ -59,14 +61,14 @@ const useLogin = () => {
         CustomToast({
           type: 'error',
           text1: 'Error',
-          text2: 'Invalid credentials.',
+          text2: response.message,
         });
       }
-    } catch {
+    } catch (error) {
       CustomToast({
         type: 'error',
         text1: 'Error',
-        text2: 'Unable to log in, password or email is invalid',
+        text2: 'Unable to log in, please try again later.',
       });
     } finally {
       setLoading(false);

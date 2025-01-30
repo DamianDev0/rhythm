@@ -1,3 +1,4 @@
+import { handleApiError } from '../../../src/utils/errorHandler';
 import {
   LoginUser,
   RegisterUser,
@@ -5,6 +6,7 @@ import {
 } from '../../application/useCases/user.useCases';
 import {LoginRequest} from '../../domain/entities/user/request/loginRequest';
 import {RegisterRequest} from '../../domain/entities/user/request/registerRequest';
+import { ErrorResponse } from '../../domain/entities/user/response/errorResponse';
 import {LoginResponse} from '../../domain/entities/user/response/loginResponse';
 import {RegisterResponse} from '../../domain/entities/user/response/registerResponse';
 import {TokenValidateResponse} from '../../domain/entities/user/response/validateTokenResponse';
@@ -13,21 +15,21 @@ import {UserRepositoryImp} from '../repositories/user.repositoryImp';
 const userRepository = new UserRepositoryImp();
 
 export class UserController {
-  static async RegisterUser(data: RegisterRequest): Promise<RegisterResponse> {
+  static async RegisterUser(data: RegisterRequest): Promise<RegisterResponse| ErrorResponse> {
     try {
       const response = await RegisterUser(userRepository, data);
       return response;
     } catch (error) {
-      throw new Error('Failed to register user. Please try again later.');
+      return handleApiError(error);
     }
   }
 
-  static async LoginUser(data: LoginRequest): Promise<LoginResponse> {
+  static async LoginUser(data: LoginRequest): Promise<LoginResponse | ErrorResponse> {
     try {
       const response = await LoginUser(userRepository, data);
       return response;
     } catch (error) {
-      throw new Error('Failed to log in. Please check your credentials.');
+      return handleApiError(error);
     }
   }
 

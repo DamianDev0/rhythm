@@ -1,13 +1,14 @@
 import {apiService} from '../../../src/utils/service/authService';
 import {LoginRequest} from '../../domain/entities/user/request/loginRequest';
 import {RegisterRequest} from '../../domain/entities/user/request/registerRequest';
+import { ErrorResponse } from '../../domain/entities/user/response/errorResponse';
 import {LoginResponse} from '../../domain/entities/user/response/loginResponse';
 import {RegisterResponse} from '../../domain/entities/user/response/registerResponse';
 import {TokenValidateResponse} from '../../domain/entities/user/response/validateTokenResponse';
 import {UserRepository} from '../../domain/interfaces/user.repository';
 
 export class UserRepositoryImp implements UserRepository {
-  async register(data: RegisterRequest): Promise<RegisterResponse> {
+  async register(data: RegisterRequest): Promise<RegisterResponse | ErrorResponse> {
     try {
       return await apiService.register(data);
     } catch (error) {
@@ -15,7 +16,7 @@ export class UserRepositoryImp implements UserRepository {
     }
   }
 
-  async login(data: LoginRequest): Promise<LoginResponse> {
+  async login(data: LoginRequest): Promise<LoginResponse | ErrorResponse> {
     try {
       return await apiService.login(data);
     } catch (error) {
