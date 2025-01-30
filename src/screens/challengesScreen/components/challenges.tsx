@@ -1,9 +1,10 @@
 import React from 'react';
-import {FlatList, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 import ChallengeCard from './challengeCard';
 import {fontBold} from '../../../styles/globalStyles';
 import {challenges} from '../../../utils/data';
 import useNavigation from '../../../hook/useNavigation';
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 
 const ChallengesScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -14,7 +15,7 @@ const ChallengesScreen: React.FC = () => {
       <FlatList
         data={challenges}
         renderItem={({item}) => (
-          <TouchableOpacity
+          <TouchableWithoutFeedback
             onPress={() =>
               navigation.navigate('ChallengesDetails', {
                 id: item.id,
@@ -29,7 +30,7 @@ const ChallengesScreen: React.FC = () => {
               title={item.title}
               description={item.description}
             />
-          </TouchableOpacity>
+          </TouchableWithoutFeedback>
         )}
         keyExtractor={item => item.id}
         numColumns={2}
