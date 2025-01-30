@@ -16,6 +16,7 @@ export const useChallengeStatus = (
     (state: RootState) => state.challenge.challengesInProgress,
   );
   const [isChallengeInProgress, setIsChallengeInProgress] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -28,24 +29,36 @@ export const useChallengeStatus = (
     }
   }, [challengesInProgress, challengeId, userId]);
 
-  const toggleChallengeStatus = () => {
+  const toggleChallengeStatus = async () => {
     if (!userId) {
       return;
     }
-    if (isChallengeInProgress) {
-      dispatch(finishChallenge({challengeId, userId}));
-    } else {
-      dispatch(startChallenge({id: challengeId, imageSource, title, userId}));
-      navigation.navigate('Home');
-      CustomToast({
-        type: 'success',
-        text1: 'success',
-        text2: 'You started a new challenge',
-        position: 'top',
-      });
+    setLoading(true);
+    try {
+      if (isChallengeInProgress) {
+        dispatch(finishChallenge({challengeId, userId}));
+        navigation.navigate('Home');
+        CustomToast({
+          type: 'info',
+          text1: 'Info',
+          text2: 'You finish this challenge',
+          position: 'top',
+        });
+      } else {
+        dispatch(startChallenge({id: challengeId, imageSource, title, userId}));
+        navigation.navigate('Home');
+        CustomToast({
+          type: 'success',
+          text1: 'success',
+          text2: 'You started a new challenge',
+          position: 'top',
+        });
+      }
+      setIsChallengeInProgress(!isChallengeInProgress);
+    } finally {
+      setLoading(false);
     }
-    setIsChallengeInProgress(!isChallengeInProgress);
   };
 
-  return {isChallengeInProgress, toggleChallengeStatus};
+  return {isChallengeInProgress, toggleChallengeStatus, loading};
 };

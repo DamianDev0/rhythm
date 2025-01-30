@@ -13,6 +13,7 @@ import {
 } from '../../styles/globalStyles';
 import {useChallengeStatus} from './hook/useChallengeStatus';
 import GenericButton from '../../components/genericButton';
+import Loader from '../../components/loader';
 
 const ChallengesDetailsScreen = () => {
   const route = useRoute();
@@ -24,11 +25,8 @@ const ChallengesDetailsScreen = () => {
     timeline: {time: string; title: string; description: string}[];
   };
 
-  const {isChallengeInProgress, toggleChallengeStatus} = useChallengeStatus(
-    item.id,
-    item.imageSource,
-    item.title,
-  );
+  const {isChallengeInProgress, toggleChallengeStatus, loading} =
+    useChallengeStatus(item.id, item.imageSource, item.title);
 
   return (
     <ImageBackground
@@ -88,6 +86,7 @@ const ChallengesDetailsScreen = () => {
           color="#fff"
           backgroundColor="#000"
         />
+         {loading && <Loader />}
       </View>
     </ImageBackground>
   );
@@ -110,7 +109,7 @@ const styles = StyleSheet.create({
     width: width * 0.9,
     backgroundColor: fourColor,
     borderRadius: 10,
-    padding: width * 0.05,
+    padding: width * 0.02,
     marginBottom: 20,
     height: height * 0.17,
   },
