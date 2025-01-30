@@ -1,7 +1,7 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import moment from 'moment';
-import {HabitController} from '../../../../core/infrastructure/controllers/habit.controller';
-import {CustomToast} from '../../../components/toastComponent';
+import { HabitController } from '../../../../core/infrastructure/controllers/habit.controller';
+import { CustomToast } from '../../../components/toastComponent';
 
 interface StreakLogicProps {
   habitId: number;
@@ -10,34 +10,48 @@ interface StreakLogicProps {
 }
 
 interface MarkedDates {
-  [date: string]: {selected: boolean; selectedColor: string};
+  [date: string]: { selected: boolean; selectedColor: string };
 }
 
-const useStreakLogic = ({
-  habitId,
-  initialStreak,
-  initialLastCompleted,
-}: StreakLogicProps) => {
+const useStreakLogic = ({ habitId, initialStreak, initialLastCompleted }: StreakLogicProps) => {
   const [streak, setStreak] = useState(initialStreak);
   const [lastCompleted, setLastCompleted] = useState(initialLastCompleted);
   const [markedDates, setMarkedDates] = useState<MarkedDates>({});
+  const [lastMarkedDay, setLastMarkedDay] = useState<string | null>(null);
 
   const markDayAsCompleted = async (date: string) => {
     const today = moment().format('YYYY-MM-DD');
-    const yesterday = moment().subtract(1, 'days').format('YYYY-MM-DD');
+    const nextDay = moment(lastCompleted).add(1, 'days').format('YYYY-MM-DD');
 
-    if (markedDates[date]) {
+    if (moment(date).isBefore(today)) {
+      CustomToast({
+        type: 'error',
+        text1: 'Invalid Selection',
+        text2: 'You cannot mark past days.',
+      });
+      return;
+    }
+
+    if (date !== today && date !== nextDay) {
+      CustomToast({
+        type: 'error',
+        text1: 'Invalid Selection',
+        text2: 'You can only mark today or the next consecutive day.',
+      });
+      return;
+    }
+
+    if (lastMarkedDay === today) {
       CustomToast({
         type: 'info',
-        text1: 'Day already completed',
-        text2: 'You cannot mark the same day more than once.',
+        text1: 'Already marked',
+        text2: 'You cannot mark more than one habit per day.',
       });
       return;
     }
 
     let newStreak = streak;
-
-    if (lastCompleted === yesterday || lastCompleted === today) {
+    if (lastCompleted === moment().subtract(1, 'days').format('YYYY-MM-DD')) {
       newStreak += 1;
     } else {
       newStreak = 1;
@@ -47,10 +61,10 @@ const useStreakLogic = ({
       await HabitController.UpdateHabitStreak(habitId, newStreak, date);
       setStreak(newStreak);
       setLastCompleted(date);
-
+      setLastMarkedDay(today);
       setMarkedDates(prevDates => ({
         ...prevDates,
-        [date]: {selected: true, selectedColor: '#000'},
+        [date]: { selected: true, selectedColor: '#000' },
       }));
 
       CustomToast({
@@ -59,8 +73,6 @@ const useStreakLogic = ({
         text2: `Current streak: ${newStreak} day${newStreak !== 1 ? 's' : ''}!`,
       });
     } catch (error) {
-      console.error('Error marking day as completed:', error);
-
       CustomToast({
         type: 'error',
         text1: 'Error',
@@ -72,12 +84,12 @@ const useStreakLogic = ({
   useEffect(() => {
     if (lastCompleted) {
       setMarkedDates({
-        [lastCompleted]: {selected: true, selectedColor: '#000'},
+        [lastCompleted]: { selected: true, selectedColor: '#000' },
       });
     }
   }, [lastCompleted]);
 
-  return {streak, markedDates, markDayAsCompleted};
+  return { streak, markedDates, markDayAsCompleted };
 };
 
 export default useStreakLogic;

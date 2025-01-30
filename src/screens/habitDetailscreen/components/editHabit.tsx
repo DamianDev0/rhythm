@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import GenericButton from '../../../components/genericButton';
 import BottomSheet from '../../../components/bottomSheet';
 import InputGeneric from '../../../components/genericInput';
@@ -41,7 +40,12 @@ const EditHabit: React.FC<EditHabitProps> = ({habitId, habitData}) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={toggleModal}>
-        <Icon name="pencil-outline" size={30} color="#FFF" />
+        <View style={styles.iconContainer}>
+          <Image
+            source={require('../../../assets/img/editIcon.png')}
+            style={styles.icon}
+          />
+        </View>
       </TouchableOpacity>
 
       <BottomSheet
@@ -137,6 +141,20 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 12,
     fontFamily: fontBold,
+  },
+  iconContainer: {
+    backgroundColor: '#f3ede7',
+    borderRadius: 10,
+    padding: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: width * 0.12,
+    height: height * 0.05,
+  },
+  icon: {
+    width: width * 0.12,
+    height: height * 0.07,
+    resizeMode: 'contain',
   },
 });
 

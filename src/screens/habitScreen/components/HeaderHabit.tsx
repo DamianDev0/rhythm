@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, Text} from 'react-native';
 import {StyleSheet, View} from 'react-native';
-import {fontBold, fourColor, width} from '../../../styles/globalStyles';
+import {fontBold, fourColor, height, width} from '../../../styles/globalStyles';
 
 const HeaderHabit = () => {
   return (
@@ -26,13 +26,14 @@ const styles = StyleSheet.create({
     flex: 0.1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: width * 0.09,
+    paddingVertical: width * 0.115,
   },
   containerCard: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     width: width * 0.9,
+    height: height * 0.14,
     backgroundColor: fourColor,
     borderRadius: 10,
     padding: width * 0.05,
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
   textHeader: {
     fontSize: 12,
     fontFamily: fontBold,
-    color: '#fff',
+    color: '#000',
     textAlign: 'center',
   },
   imageHeader: {

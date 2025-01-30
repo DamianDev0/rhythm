@@ -1,8 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import GenericButton from '../../../components/genericButton';
-
 import BottomSheet from '../../../components/bottomSheet';
 import {fontBold, height, width} from '../../../styles/globalStyles';
 import {useDeleteHabit} from '../hooks/useDeleteHabit';
@@ -27,7 +25,12 @@ const DeleteHabit: React.FC<DeleteHabitProps> = ({habitId}) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={toggleModal}>
-        <Icon name="trash-can-outline" size={30} color="#fff" />
+        <View style={styles.iconContainer}>
+          <Image
+            source={require('../../../assets/img/deleteIcon.png')}
+            style={styles.icon}
+          />
+        </View>
       </TouchableOpacity>
       <BottomSheet
         isVisible={modalVisible}
@@ -72,6 +75,20 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     justifyContent: 'center',
+  },
+  iconContainer: {
+    backgroundColor: '#f3ede7',
+    borderRadius: 10,
+    padding: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: width * 0.12,
+    height: height * 0.05,
+  },
+  icon: {
+    width: width * 0.19,
+    height: height * 0.07,
+    resizeMode: 'contain',
   },
   image: {
     width: width * 0.7,
