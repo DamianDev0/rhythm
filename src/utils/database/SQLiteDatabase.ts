@@ -1,4 +1,5 @@
 import SQLite from 'react-native-sqlite-storage';
+
 import {HabitTable} from '../models/Habit';
 
 const database = SQLite.openDatabase(

@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import useNavigation from '../../../hook/useNavigation';
-import { setToken } from '../../../redux/tokenSlice';
+
 import { useDispatch } from 'react-redux';
+
+import { ErrorResponse } from '../../../../core/domain/entities/user/response/errorResponse';
+import { LoginResponse } from '../../../../core/domain/entities/user/response/loginResponse';
 import { UserController } from '../../../../core/infrastructure/controllers/user.controller';
 import { CustomToast } from '../../../components/toastComponent';
-import { LoginResponse } from '../../../../core/domain/entities/user/response/loginResponse';
-import { ErrorResponse } from '../../../../core/domain/entities/user/response/errorResponse';
+import useNavigation from '../../../hook/useNavigation';
+import { setToken } from '../../../redux/tokenSlice';
 
 const useLogin = () => {
   const navigation = useNavigation();

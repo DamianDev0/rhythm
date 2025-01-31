@@ -1,6 +1,8 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, ImageSourcePropType} from 'react-native';
+
 import moment from 'moment';
+import {View, Text, StyleSheet, Image, ImageSourcePropType} from 'react-native';
+
 import {
   width,
   fontBold,

@@ -1,10 +1,12 @@
-import {useSelector} from 'react-redux';
-import {RootState} from '../../../redux/store';
 import {useState} from 'react';
+
+import {useSelector} from 'react-redux';
+
 import {CreateHabitRequest} from '../../../../core/domain/entities/habit/request/createHabitRequest';
 import {HabitController} from '../../../../core/infrastructure/controllers/habit.controller';
 import {UserController} from '../../../../core/infrastructure/controllers/user.controller';
 import {CustomToast} from '../../../components/toastComponent';
+import {RootState} from '../../../redux/store';
 
 const useCreateHabit = () => {
   const token = useSelector((state: RootState) => state.token.token);

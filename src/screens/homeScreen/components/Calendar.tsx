@@ -1,6 +1,8 @@
 import React from 'react';
-import {View, StyleSheet, FlatList, Text} from 'react-native';
+
 import moment from 'moment';
+import {View, StyleSheet, FlatList, Text} from 'react-native';
+
 import {
   fontBold,
   fontLight,

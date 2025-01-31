@@ -1,7 +1,9 @@
 import React from 'react';
+
 import {StyleSheet, ImageBackground} from 'react-native';
-import HeaderHabit from './components/HeaderHabit';
+
 import FormHabit from './components/formCreateHabit';
+import HeaderHabit from './components/HeaderHabit';
 
 const HabitScreen = () => {
   return (

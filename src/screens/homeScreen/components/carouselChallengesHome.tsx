@@ -1,12 +1,16 @@
 import React, { useRef } from 'react';
-import { useSelector } from 'react-redux';
+
+import moment from 'moment';
 import { View, StyleSheet, Text } from 'react-native';
 import Carousel, { ICarouselInstance } from 'react-native-reanimated-carousel';
-import { width, height, fontBold, fontLight } from '../../../styles/globalStyles';
-import ChallengeCard from './ChallengeCard';
-import moment from 'moment';
-import { RootState } from '../../../redux/store';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import { useSelector } from 'react-redux';
+
+import ChallengeCard from './ChallengeCard';
+import { RootState } from '../../../redux/store';
+import { width, height, fontBold, fontLight } from '../../../styles/globalStyles';
+
+
 
 const ChallengeCarousel = () => {
   const userId = useSelector((state: RootState) => state.token.userId);
@@ -116,7 +120,7 @@ const styles = StyleSheet.create({
   },
   singleChallengeContainer: {
     marginRight: width * 0.2,
-    marginTop: width * 0.02, 
+    marginTop: width * 0.02,
   },
 });
 

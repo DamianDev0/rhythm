@@ -1,7 +1,8 @@
 import {createReducer} from '@reduxjs/toolkit';
 import moment from 'moment';
-import {finishChallenge, startChallenge} from './actions/actions';
 import { ImageSourcePropType } from 'react-native';
+
+import {finishChallenge, startChallenge} from './actions/actions';
 
 interface ChallengeState {
   challengesInProgress: {

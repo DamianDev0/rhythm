@@ -1,5 +1,7 @@
 import React from 'react';
+
 import {TouchableOpacity, Text, StyleSheet} from 'react-native';
+
 import {fontBold} from '../styles/globalStyles';
 
 interface GenericButtonProps {

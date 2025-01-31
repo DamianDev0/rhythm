@@ -1,18 +1,17 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
+
 import {
-  Alert,
-  Animated,
   StyleSheet,
   TouchableOpacity,
   View,
 } from 'react-native';
 import {CurvedBottomBar} from 'react-native-curved-bottom-bar';
-import HomeScreen from '../../screens/homeScreen/homeScreen';
+
 import TabBarIcon from './tabBarIcon';
 import ChallengesScreen from '../../screens/challengesScreen/challengesScreen';
-import HabitScreen from '../../screens/habitScreen/habitScreen';
 import ChartScreen from '../../screens/chartScreen/ChartScreen';
+import HabitScreen from '../../screens/habitScreen/habitScreen';
+import HomeScreen from '../../screens/homeScreen/homeScreen';
 
 const PrivateTabs = () => {
   const renderTabBarIcon = ({

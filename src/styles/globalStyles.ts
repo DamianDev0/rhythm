@@ -16,4 +16,4 @@ export const secondaryColor = '#000';
 
 export const terceryColor = '#FFF';
 
-export const fourColor = '#D09E7E' 
+export const fourColor = '#D09E7E';

@@ -1,10 +1,12 @@
 import React from 'react';
+
 import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+
 import ChallengeCard from './challengeCard';
+import useNavigation from '../../../hook/useNavigation';
 import {fontBold} from '../../../styles/globalStyles';
 import {challenges} from '../../../utils/data';
-import useNavigation from '../../../hook/useNavigation';
-import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 
 const ChallengesScreen: React.FC = () => {
   const navigation = useNavigation();

@@ -1,8 +1,13 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
+
 import {useRoute} from '@react-navigation/native';
 import {StyleSheet, ImageBackground, View, Text, Image} from 'react-native';
 import Timeline from 'react-native-timeline-flatlist';
+
+import {useChallengeStatus} from './hook/useChallengeStatus';
+import GenericButton from '../../components/genericButton';
+import Loader from '../../components/loader';
 import {
   fontBold,
   fontLight,
@@ -11,9 +16,6 @@ import {
   height,
   width,
 } from '../../styles/globalStyles';
-import {useChallengeStatus} from './hook/useChallengeStatus';
-import GenericButton from '../../components/genericButton';
-import Loader from '../../components/loader';
 
 const ChallengesDetailsScreen = () => {
   const route = useRoute();

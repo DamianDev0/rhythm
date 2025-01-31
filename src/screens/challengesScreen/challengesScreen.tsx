@@ -1,7 +1,9 @@
 import React from 'react';
+
 import {StyleSheet, ImageBackground} from 'react-native';
-import HeaderChallenges from './components/header';
+
 import Challenges from './components/challenges';
+import HeaderChallenges from './components/header';
 
 const ChallengesScreen = () => {
   return (

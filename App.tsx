@@ -1,10 +1,13 @@
 import 'react-native-reanimated';
 import React, {useEffect} from 'react';
-import MainRoutes from './src/navigation/mainNavigation';
-import Toast from 'react-native-toast-message';
+
+import {StyleSheet} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import Toast from 'react-native-toast-message';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
+
+import MainRoutes from './src/navigation/mainNavigation';
 import {persistor, store} from './src/redux/store';
 
 // import database from './src/utils/database/SQLiteDatabase';
@@ -24,9 +27,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <PersistGate
-        loading={<GestureHandlerRootView style={{flex: 1}} />}
+        loading={<GestureHandlerRootView style={styles.flex} />}
         persistor={persistor}>
-        <GestureHandlerRootView style={{flex: 1}}>
+        <GestureHandlerRootView style={styles.flex}>
           <MainRoutes />
           <Toast />
         </GestureHandlerRootView>
@@ -34,5 +37,11 @@ const App = () => {
     </Provider>
   );
 };
+
+const styles = StyleSheet.create({
+  flex: {
+    flex: 1,
+  },
+});
 
 export default App;

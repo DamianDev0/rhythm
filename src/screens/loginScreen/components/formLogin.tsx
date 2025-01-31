@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   Image,
   StyleSheet,
@@ -9,15 +10,16 @@ import {
   ScrollView,
   ImageBackground,
 } from 'react-native';
+
 import GenericButton from '../../../components/genericButton';
 import InputGeneric from '../../../components/genericInput';
-import useLogin from '../hook/useLogin';
 import {
   fontBold,
   fontMedium,
   height,
   width,
 } from '../../../styles/globalStyles';
+import useLogin from '../hook/useLogin';
 
 const LoginForm = () => {
   const {credentials, handleInputChange, handleGotoSignUp, handleLogin, loading} =

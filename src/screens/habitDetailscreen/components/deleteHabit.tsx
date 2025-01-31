@@ -1,10 +1,12 @@
 import React from 'react';
+
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import GenericButton from '../../../components/genericButton';
+
 import BottomSheet from '../../../components/bottomSheet';
+import GenericButton from '../../../components/genericButton';
+import Loader from '../../../components/loader';
 import {fontBold, height, width} from '../../../styles/globalStyles';
 import {useDeleteHabit} from '../hooks/useDeleteHabit';
-import Loader from '../../../components/loader';
 
 interface DeleteHabitProps {
   habitId: number;

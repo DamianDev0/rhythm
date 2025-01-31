@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/no-shadow */
+
 import React from 'react';
+
 import {
   TextInput,
   StyleSheet,
@@ -9,6 +10,7 @@ import {
   ImageSourcePropType,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+
 import {
   fontLight,
   height as screenHeight,

@@ -1,6 +1,6 @@
 import {LocaleConfig} from 'react-native-calendars';
 
-LocaleConfig.locales['en'] = {
+LocaleConfig.locales.en = {
   monthNames: [
     'January',
     'February',

@@ -1,13 +1,16 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable no-catch-shadow */
 import {useState} from 'react';
+
 import {useDispatch, useSelector} from 'react-redux';
-import {CustomToast} from '../../../components/toastComponent';
-import {RootState} from '../../../redux/store';
-import {HabitController} from '../../../../core/infrastructure/controllers/habit.controller';
-import {setToken} from '../../../redux/tokenSlice';
-import {UserController} from '../../../../core/infrastructure/controllers/user.controller';
+
 import {CreateHabitRequest} from '../../../../core/domain/entities/habit/request/createHabitRequest';
+import {HabitController} from '../../../../core/infrastructure/controllers/habit.controller';
+import {UserController} from '../../../../core/infrastructure/controllers/user.controller';
+import {CustomToast} from '../../../components/toastComponent';
 import useNavigation from '../../../hook/useNavigation';
+import {RootState} from '../../../redux/store';
+import {setToken} from '../../../redux/tokenSlice';
 
 export const useEditHabit = (
   habitId: number,

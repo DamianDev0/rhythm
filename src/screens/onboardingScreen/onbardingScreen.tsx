@@ -1,5 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   Image,
   ImageBackground,
@@ -22,7 +24,6 @@ import {
   terceryColor,
   width,
 } from '../../styles/globalStyles';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const OnboardingScreen = () => {
   const navigation = useNavigation();

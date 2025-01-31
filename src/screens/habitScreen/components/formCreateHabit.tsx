@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   View,
   StyleSheet,
@@ -6,13 +7,14 @@ import {
   ScrollView,
   Platform,
 } from 'react-native';
-import InputGeneric from '../../../components/genericInput';
-import {height, width} from '../../../styles/globalStyles';
-import GenericButton from '../../../components/genericButton';
-import useCreateHabit from '../hook/useCreateHabit';
+
 import ChosseImage from './ChosseImage';
 import GenericDropdown from '../../../components/dropDown';
+import GenericButton from '../../../components/genericButton';
+import InputGeneric from '../../../components/genericInput';
+import {height, width} from '../../../styles/globalStyles';
 import { frequencyOptions } from '../../../utils/data';
+import useCreateHabit from '../hook/useCreateHabit';
 
 
 
