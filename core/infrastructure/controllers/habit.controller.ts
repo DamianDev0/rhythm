@@ -7,7 +7,9 @@ import {
   updateHabitStreak,
   deleteHabit,
   updateHabit,
+  getHabitStatistics,
 } from '../../application/useCases/habit.useCases';
+import {HabitStatistics} from '../../domain/entities/habit/request/HabitStatistics';
 
 const habitRepository = new HabitRepositoryImp();
 
@@ -68,6 +70,16 @@ export class HabitController {
       return result;
     } catch (error) {
       console.error('Error editing habit:', error);
+      throw error;
+    }
+  }
+
+  static async GetStastHabit(userId: string): Promise<HabitStatistics> {
+    try {
+      const result = await getHabitStatistics(habitRepository, userId);
+      return result;
+    } catch (error) {
+      console.error('Error getting stats:', error);
       throw error;
     }
   }

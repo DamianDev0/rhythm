@@ -35,3 +35,10 @@ export const updateHabit = (
 ) => {
   return habitRepository.updateHabit(habitId, data);
 };
+
+export const getHabitStatistics = (
+  habitRepository: HabitRepository,
+  userId: string,
+) => {
+  return habitRepository.getHabitStatistics(userId);
+};

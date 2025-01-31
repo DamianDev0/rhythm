@@ -2,6 +2,7 @@
 import database from '../../../src/utils/database/SQLiteDatabase';
 import {Habit} from '../../domain/entities/habit/Habit';
 import {CreateHabitRequest} from '../../domain/entities/habit/request/createHabitRequest';
+import {HabitStatistics} from '../../domain/entities/habit/request/HabitStatistics';
 import {HabitRepository} from '../../domain/interfaces/habit.repository';
 
 export class HabitRepositoryImp implements HabitRepository {
@@ -129,6 +130,58 @@ export class HabitRepositoryImp implements HabitRepository {
             } else {
               reject(new Error('Failed to update habit'));
             }
+          },
+          error => {
+            reject(error);
+          },
+        );
+      });
+    });
+  }
+
+  async getHabitStatistics(userId: string): Promise<HabitStatistics> {
+    return new Promise((resolve, reject) => {
+      database.transaction(tx => {
+        tx.executeSql(
+          `
+          SELECT frequency, COUNT(*) AS count 
+          FROM habits 
+          WHERE userId = ? 
+          GROUP BY frequency
+          ORDER BY count DESC
+          `,
+          [userId],
+          (tx, freqResults) => {
+            const frequencyStats: {frequency: string; count: number}[] = [];
+            for (let i = 0; i < freqResults.rows.length; i++) {
+              const row = freqResults.rows.item(i);
+              frequencyStats.push({frequency: row.frequency, count: row.count});
+            }
+
+            tx.executeSql(
+              `
+              SELECT strftime('%w', createdAt) AS day, COUNT(*) AS count
+              FROM habits 
+              WHERE userId = ? AND createdAt IS NOT NULL
+              GROUP BY day
+              `,
+              [userId],
+              (tx, dayResults) => {
+                const createdByDay: Record<string, number> = {};
+                for (let i = 0; i < dayResults.rows.length; i++) {
+                  const row = dayResults.rows.item(i);
+                  createdByDay[row.day] = row.count;
+                }
+
+                resolve({
+                  frequencyStats,
+                  createdByDay,
+                });
+              },
+              error => {
+                reject(error);
+              },
+            );
           },
           error => {
             reject(error);

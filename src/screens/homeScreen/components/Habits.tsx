@@ -40,7 +40,7 @@ const HabitsHome = () => {
       ) : habits.length === 0 ? (
         <View style={styles.emptyContainer}>
           <Image
-            source={require('../../../assets/img/Saly-3.png')}
+            source={require('../../../assets/img/homeNotCreate.png')}
             style={styles.emptyImage}
           />
           <Text style={styles.emptyText}>No habits created yet.</Text>
@@ -101,22 +101,20 @@ const styles = StyleSheet.create({
   },
   emptyContainer: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     alignItems: 'center',
   },
   emptyImage: {
-    width: width * 0.5,
-    height: height * 0.2,
-    resizeMode: 'contain',
-    marginBottom: 20,
-    marginLeft: width * 0.2,
+    width: width * 0.9,
+    height: height * 0.28,
+    resizeMode: 'cover',
   },
   emptyText: {
-    fontSize: 12,
+    fontSize: 13,
     color: '#FFF',
     fontFamily: fontLight,
-    textAlign: 'center',
-    marginLeft: width * 0.2,
+    textAlign: 'left',
+    marginBottom: width * 0.04,
   },
   card: {
     flexDirection: 'row',
