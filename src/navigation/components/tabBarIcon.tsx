@@ -13,10 +13,10 @@ const TabBarIcon: React.FC<TabBarIconProps> = ({routeName}) => {
     case 'HomeTab':
       imageSource = require('../../assets/img/home.png');
       break;
-    case 'Screen1':
+    case 'Habits':
       imageSource = require('../../assets/img/calendar2.png');
       break;
-    case 'Screen2':
+    case 'Chart':
       imageSource = require('../../assets/img/chart.png');
       break;
     case 'Challenges':
