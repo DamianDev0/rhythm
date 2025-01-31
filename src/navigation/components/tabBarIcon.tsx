@@ -1,5 +1,7 @@
 import React from 'react';
+
 import {Image, StyleSheet} from 'react-native';
+
 import { height, width } from '../../styles/globalStyles';
 
 interface TabBarIconProps {

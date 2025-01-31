@@ -1,8 +1,10 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, {useCallback} from 'react';
+
+import {useFocusEffect} from '@react-navigation/native';
 import {StyleSheet, Text, View, Image} from 'react-native';
 import {PieChart} from 'react-native-gifted-charts';
-import {useHabitStatistics} from '../hooks/useHabitStatistics';
+
 import Loader from '../../../components/loader';
 import {
   fontBold,
@@ -11,7 +13,7 @@ import {
   height,
   width,
 } from '../../../styles/globalStyles';
-import {useFocusEffect} from '@react-navigation/native';
+import {useHabitStatistics} from '../hooks/useHabitStatistics';
 
 const PieChartComponent = () => {
   const {stats, loading, fetchStats} = useHabitStatistics();

@@ -1,8 +1,9 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {configureStore, combineReducers} from '@reduxjs/toolkit';
 import {persistStore, persistReducer} from 'redux-persist';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import tokenReducer from './tokenSlice';
+
 import challengeReducer from './challengeSlice';
+import tokenReducer from './tokenSlice';
 
 const persistConfig = {
   key: 'root',

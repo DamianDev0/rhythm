@@ -1,6 +1,3 @@
-import {Habit} from '../../domain/entities/habit/Habit';
-import {CreateHabitRequest} from '../../domain/entities/habit/request/createHabitRequest';
-import {HabitRepositoryImp} from '../repositories/habit.repositoryImp';
 import {
   createHabit,
   allHabits,
@@ -9,7 +6,10 @@ import {
   updateHabit,
   getHabitStatistics,
 } from '../../application/useCases/habit.useCases';
+import {Habit} from '../../domain/entities/habit/Habit';
+import {CreateHabitRequest} from '../../domain/entities/habit/request/createHabitRequest';
 import {HabitStatistics} from '../../domain/entities/habit/request/HabitStatistics';
+import {HabitRepositoryImp} from '../repositories/habit.repositoryImp';
 
 const habitRepository = new HabitRepositoryImp();
 

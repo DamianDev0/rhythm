@@ -1,12 +1,15 @@
+/* eslint-disable no-catch-shadow */
 /* eslint-disable @typescript-eslint/no-shadow */
 import {useState} from 'react';
+
 import {useDispatch, useSelector} from 'react-redux';
+
+import {HabitController} from '../../../../core/infrastructure/controllers/habit.controller';
 import {UserController} from '../../../../core/infrastructure/controllers/user.controller';
 import {CustomToast} from '../../../components/toastComponent';
-import {RootState} from '../../../redux/store';
-import {HabitController} from '../../../../core/infrastructure/controllers/habit.controller';
-import {setToken} from '../../../redux/tokenSlice';
 import useNavigation from '../../../hook/useNavigation';
+import {RootState} from '../../../redux/store';
+import {setToken} from '../../../redux/tokenSlice';
 
 export const useDeleteHabit = () => {
   const dispatch = useDispatch();

@@ -1,7 +1,9 @@
 import React from 'react';
+
 import {View, StyleSheet} from 'react-native';
-import EditHabit from './editHabit';
+
 import DeleteHabit from './deleteHabit';
+import EditHabit from './editHabit';
 import {width} from '../../../styles/globalStyles';
 
 interface HeaderHabitEditAndDeleteProps {

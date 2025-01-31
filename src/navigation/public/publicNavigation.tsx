@@ -1,11 +1,13 @@
 import React from 'react';
+
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NavigationRoutes} from '../../types/navigationRoutes';
-import LoginScreen from '../../screens/loginScreen/loginScreen';
-import SignUpScreen from '../../screens/signUpScreen/signUpScreen';
-import OnboardingScreen from '../../screens/onboardingScreen/onbardingScreen';
-import useOnboardingStatus from '../../hook/useInicialPublicRoute';
+
 import Loader from '../../components/loader';
+import useOnboardingStatus from '../../hook/useInicialPublicRoute';
+import LoginScreen from '../../screens/loginScreen/loginScreen';
+import OnboardingScreen from '../../screens/onboardingScreen/onbardingScreen';
+import SignUpScreen from '../../screens/signUpScreen/signUpScreen';
+import {NavigationRoutes} from '../../types/navigationRoutes';
 
 const Stack = createNativeStackNavigator<NavigationRoutes>();
 

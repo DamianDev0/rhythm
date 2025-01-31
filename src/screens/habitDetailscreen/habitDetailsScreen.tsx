@@ -1,12 +1,14 @@
 import React from 'react';
-import {View, StyleSheet, ImageBackground} from 'react-native';
+
 import {useRoute} from '@react-navigation/native';
+import {View, StyleSheet, ImageBackground} from 'react-native';
 import {Calendar} from 'react-native-calendars';
+
 import HeaderHabitDetails from './components/HeaderHabitDetails';
+import HeaderHabitEditAndDelete from './components/HeaderHabitEditAndDelete';
 import Streak from './components/Streak';
 import useStreakLogic from './hooks/useStreakLogic';
 import {fontBold, fourColor, width} from '../../styles/globalStyles';
-import HeaderHabitEditAndDelete from './components/HeaderHabitEditAndDelete';
 
 const HabitDetailsScreen = () => {
   const route = useRoute();

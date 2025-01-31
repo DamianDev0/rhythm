@@ -1,13 +1,15 @@
 import React, {useEffect} from 'react';
+
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import GenericButton from '../../../components/genericButton';
+
 import BottomSheet from '../../../components/bottomSheet';
-import InputGeneric from '../../../components/genericInput';
-import {fontBold, height, width} from '../../../styles/globalStyles';
-import Loader from '../../../components/loader';
-import {useEditHabit} from '../hooks/useEditHabit';
 import GenericDropdown from '../../../components/dropDown';
+import GenericButton from '../../../components/genericButton';
+import InputGeneric from '../../../components/genericInput';
+import Loader from '../../../components/loader';
+import {fontBold, height, width} from '../../../styles/globalStyles';
 import {frequencyOptions} from '../../../utils/data';
+import {useEditHabit} from '../hooks/useEditHabit';
 
 interface EditHabitProps {
   habitId: number;

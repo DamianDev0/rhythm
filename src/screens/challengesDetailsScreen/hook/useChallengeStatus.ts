@@ -1,9 +1,11 @@
 import {useEffect, useState} from 'react';
+
 import {useDispatch, useSelector} from 'react-redux';
-import {RootState} from '../../../redux/store';
-import {finishChallenge, startChallenge} from '../../../redux/actions/actions';
-import useNavigation from '../../../hook/useNavigation';
+
 import {CustomToast} from '../../../components/toastComponent';
+import useNavigation from '../../../hook/useNavigation';
+import {finishChallenge, startChallenge} from '../../../redux/actions/actions';
+import {RootState} from '../../../redux/store';
 
 export const useChallengeStatus = (
   challengeId: string,

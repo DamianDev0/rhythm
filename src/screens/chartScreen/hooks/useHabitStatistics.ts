@@ -1,7 +1,9 @@
 import {useState} from 'react';
+
+import {useSelector} from 'react-redux';
+
 import {HabitStatistics} from '../../../../core/domain/entities/habit/request/HabitStatistics';
 import {HabitController} from '../../../../core/infrastructure/controllers/habit.controller';
-import {useSelector} from 'react-redux';
 import {RootState} from '../../../redux/store';
 
 export const useHabitStatistics = () => {

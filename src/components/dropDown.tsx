@@ -1,6 +1,8 @@
 import React from 'react';
+
 import {View, StyleSheet, Text, Image, ImageSourcePropType} from 'react-native';
 import {Dropdown} from 'react-native-element-dropdown';
+
 import {fontBold, fontLight, height, width} from '../styles/globalStyles';
 
 interface GenericDropdownProps {

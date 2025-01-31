@@ -1,9 +1,13 @@
-import {useSelector} from 'react-redux';
-import {RootState} from '../../../redux/store';
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable no-catch-shadow */
 import {useEffect, useState, useCallback} from 'react';
+
+import {useSelector} from 'react-redux';
+
+import {Habit} from '../../../../core/domain/entities/habit/Habit';
 import {HabitController} from '../../../../core/infrastructure/controllers/habit.controller';
 import {UserController} from '../../../../core/infrastructure/controllers/user.controller';
-import {Habit} from '../../../../core/domain/entities/habit/Habit';
+import {RootState} from '../../../redux/store';
 
 const useFetchHabits = () => {
   const token = useSelector((state: RootState) => state.token.token);

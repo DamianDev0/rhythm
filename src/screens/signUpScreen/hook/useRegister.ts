@@ -1,9 +1,10 @@
 import {useState} from 'react';
-import useNavigation from '../../../hook/useNavigation';
-import {CustomToast} from '../../../components/toastComponent';
-import {UserController} from '../../../../core/infrastructure/controllers/user.controller';
-import {RegisterResponse} from '../../../../core/domain/entities/user/response/registerResponse';
+
 import {ErrorResponse} from '../../../../core/domain/entities/user/response/errorResponse';
+import {RegisterResponse} from '../../../../core/domain/entities/user/response/registerResponse';
+import {UserController} from '../../../../core/infrastructure/controllers/user.controller';
+import {CustomToast} from '../../../components/toastComponent';
+import useNavigation from '../../../hook/useNavigation';
 
 const useSignUp = () => {
   const navigation = useNavigation();

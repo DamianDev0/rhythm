@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import {NavigationRoutes} from '../types/navigationRoutes';
 
 const useOnboardingStatus = () => {

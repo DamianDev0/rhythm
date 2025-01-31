@@ -1,9 +1,11 @@
 import React from 'react';
+
 import {Image, Text, View, StyleSheet, TouchableOpacity} from 'react-native';
-import {fontBold, height, width} from '../../../styles/globalStyles';
 import {useDispatch} from 'react-redux';
-import {clearToken} from '../../../redux/tokenSlice';
+
 import useNavigation from '../../../hook/useNavigation';
+import {clearToken} from '../../../redux/tokenSlice';
+import {fontBold, height, width} from '../../../styles/globalStyles';
 
 const HeaderHome = () => {
   const dispatch = useDispatch();

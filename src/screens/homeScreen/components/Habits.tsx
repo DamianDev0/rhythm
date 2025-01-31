@@ -1,4 +1,6 @@
 import React, {useCallback} from 'react';
+
+import {useFocusEffect} from '@react-navigation/native';
 import {
   View,
   Text,
@@ -7,9 +9,9 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import {useFocusEffect} from '@react-navigation/native';
-import useFetchHabits from '../hooks/useFetchHabits';
+
 import Loader from '../../../components/loader';
+import useNavigation from '../../../hook/useNavigation';
 import {
   fontBold,
   fontLight,
@@ -18,7 +20,7 @@ import {
   height,
   width,
 } from '../../../styles/globalStyles';
-import useNavigation from '../../../hook/useNavigation';
+import useFetchHabits from '../hooks/useFetchHabits';
 
 const HabitsHome = () => {
   const {habits, loading, error, fetchHabits} = useFetchHabits();

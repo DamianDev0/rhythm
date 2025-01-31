@@ -1,7 +1,9 @@
 import React from 'react';
+
 import {ImageBackground, StyleSheet, View} from 'react-native';
-import PieChartComponent from './components/pieChart';
+
 import HeaderChart from './components/HeaderChart';
+import PieChartComponent from './components/pieChart';
 
 const ChartScreen = () => {
   return (

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   Image,
   StyleSheet,
@@ -7,10 +8,11 @@ import {
   View,
   FlatList,
 } from 'react-native';
-import {fontLight, height, width} from '../../../styles/globalStyles';
+
 import BottomSheet from '../../../components/bottomSheet';
-import useChosseImage from '../hook/useChosseImage';
+import {fontLight, height, width} from '../../../styles/globalStyles';
 import {images} from '../../../utils/data';
+import useChosseImage from '../hook/useChosseImage';
 
 const ChosseImage = ({
   onImageSelect,

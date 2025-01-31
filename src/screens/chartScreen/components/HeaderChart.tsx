@@ -1,6 +1,8 @@
 import React from 'react';
+
 import {Image, Text} from 'react-native';
 import {StyleSheet, View} from 'react-native';
+
 import {fontBold, fourColor, height, width} from '../../../styles/globalStyles';
 
 const HeaderChart = () => {
