@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
+import {useFocusEffect} from '@react-navigation/native';
 import {
   fontBold,
   fontMedium,
@@ -7,16 +8,27 @@ import {
   height,
   width,
 } from '../../../styles/globalStyles';
+import {quotes} from '../../../utils/data';
+
+const getRandomQuote = () => {
+  return quotes[Math.floor(Math.random() * quotes.length)];
+};
 
 const CardHome = () => {
+  const [quote, setQuote] = useState(getRandomQuote());
+
+  useFocusEffect(
+    React.useCallback(() => {
+      setQuote(getRandomQuote());
+    }, []),
+  );
+
   return (
     <View style={styles.container}>
       <View style={styles.card}>
         <View style={styles.textContainer}>
-          <Text style={styles.largeText}>Stay Committed</Text>
-          <Text style={styles.smallText}>
-            Keep going, progress starts with consistency!
-          </Text>
+          <Text style={styles.largeText}>{quote.title}</Text>
+          <Text style={styles.smallText}>{quote.text}</Text>
         </View>
         <Image
           source={require('../../../assets/img/homeavatars.png')}

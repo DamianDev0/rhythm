@@ -1,9 +1,12 @@
 export const challenges = [
   {
     id: '1',
-    imageSource: { uri: 'https://ucarecdn.com/1d1046cc-a440-4936-bbbe-daa58e46c456/food.png' },
+    imageSource: {
+      uri: 'https://ucarecdn.com/1d1046cc-a440-4936-bbbe-daa58e46c456/food.png',
+    },
     title: 'Eat Healthy',
-    description: 'Plan meals, build habits, stay motivated, and track your progress.',
+    description:
+      'Plan meals, build habits, stay motivated, and track your progress.',
     timeline: [
       {
         time: '07:00',
@@ -15,7 +18,7 @@ export const challenges = [
         title: 'Lunch',
         description: 'Salad with grilled chicken',
       },
-      { time: '15:00', title: 'Snack', description: 'A handful of nuts' },
+      {time: '15:00', title: 'Snack', description: 'A handful of nuts'},
       {
         time: '19:00',
         title: 'Dinner',
@@ -25,7 +28,9 @@ export const challenges = [
   },
   {
     id: '2',
-    imageSource: { uri: 'https://ucarecdn.com/7f855482-7d9e-40fc-b11c-04976647b1c7/drink.png' },
+    imageSource: {
+      uri: 'https://ucarecdn.com/7f855482-7d9e-40fc-b11c-04976647b1c7/drink.png',
+    },
     title: 'Stop Drinking',
     description: 'Improve your health, boost energy, save money',
     timeline: [
@@ -39,15 +44,18 @@ export const challenges = [
         title: 'Hydration',
         description: 'Drink 2 liters of water',
       },
-      { time: '16:00', title: 'Healthy Snack', description: 'Fruit smoothie' },
-      { time: '20:00', title: 'Evening Relaxation', description: 'Read a book' },
+      {time: '16:00', title: 'Healthy Snack', description: 'Fruit smoothie'},
+      {time: '20:00', title: 'Evening Relaxation', description: 'Read a book'},
     ],
   },
   {
     id: '3',
-    imageSource: { uri: 'https://ucarecdn.com/072abf11-8ef6-4eda-b978-9943308d07dd/meditation.png' },
+    imageSource: {
+      uri: 'https://ucarecdn.com/072abf11-8ef6-4eda-b978-9943308d07dd/meditation.png',
+    },
     title: 'Meditation',
-    description: 'Reduce stress, improve focus, boost well-being, and find inner peace.',
+    description:
+      'Reduce stress, improve focus, boost well-being, and find inner peace.',
     timeline: [
       {
         time: '06:00',
@@ -73,9 +81,12 @@ export const challenges = [
   },
   {
     id: '4',
-    imageSource: { uri: 'https://ucarecdn.com/69687b8c-8257-41e6-98de-19d23711c4b5/sport.png' },
+    imageSource: {
+      uri: 'https://ucarecdn.com/69687b8c-8257-41e6-98de-19d23711c4b5/sport.png',
+    },
     title: 'Sport',
-    description: 'Boost energy, build strength, improve health, and feel your best.',
+    description:
+      'Boost energy, build strength, improve health, and feel your best.',
     timeline: [
       {
         time: '09:00',
@@ -87,7 +98,7 @@ export const challenges = [
         title: 'Cardio Session',
         description: '45 minutes of cycling',
       },
-      { time: '17:00', title: 'Stretching', description: '30 minutes of yoga' },
+      {time: '17:00', title: 'Stretching', description: '30 minutes of yoga'},
       {
         time: '20:00',
         title: 'Cool Down',
@@ -118,4 +129,41 @@ export const frequencyOptions = [
   {label: 'Every week', value: 'weekly'},
   {label: 'Every 15 days', value: 'biweekly'},
   {label: 'Every month', value: 'monthly'},
+];
+
+export const quotes = [
+  {
+    title: 'Do What You Can',
+    text: 'Do what you can, with what you have, where you are.',
+  },
+  {
+    title: 'Courage to Continue',
+    text: 'Success is not final, failure is not fatal: it is the courage to continue that counts.',
+  },
+  {title: 'Happiness is Ours', text: 'Happiness depends upon ourselves.'},
+  {
+    title: 'Keep It Simple',
+    text: 'Life is really simple, but we insist on making it complicated.',
+  },
+  {
+    title: 'Make a Difference',
+    text: 'Act as if what you do makes a difference. It does.',
+  },
+  {
+    title: 'Happy Life',
+    text: 'If you want to live a happy life, tie it to a goal, not to people or things.',
+  },
+  {
+    title: 'Think Big',
+    text: 'Whether you think you can, or you think you can’t – you’re right.',
+  },
+  {title: 'Be a Voice', text: 'Speak your mind, even if your voice shakes.'},
+  {
+    title: 'Opportunities',
+    text: 'In the middle of difficulty lies opportunity.',
+  },
+  {
+    title: 'Keep Moving',
+    text: 'Life is like riding a bicycle. To keep your balance, you must keep moving.',
+  },
 ];
