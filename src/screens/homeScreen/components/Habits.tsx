@@ -26,6 +26,10 @@ const HabitsHome = () => {
   const {habits, loading, error, fetchHabits} = useFetchHabits();
   const navigation = useNavigation();
 
+  const handleGoToCreateHabit = () => {
+    navigation.navigate('Habits');
+  };
+
   useFocusEffect(
     useCallback(() => {
       fetchHabits();
@@ -45,7 +49,7 @@ const HabitsHome = () => {
             source={require('../../../assets/img/homeNotCreate.png')}
             style={styles.emptyImage}
           />
-          <Text style={styles.emptyText}>No habits created yet.</Text>
+         <TouchableOpacity onPress={handleGoToCreateHabit}><Text style={styles.emptyText}>No habits yet. Click here to create your first one!</Text></TouchableOpacity>
         </View>
       ) : (
         <FlatList
@@ -112,7 +116,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   emptyText: {
-    fontSize: 13,
+    fontSize: 11,
     color: '#FFF',
     fontFamily: fontLight,
     textAlign: 'left',

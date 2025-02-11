@@ -12,7 +12,6 @@ export class NotificationController {
   ): Promise<NotificationResponse | NotificationErrorResponse> {
     try {
       const response = await sendMessage(notificationRepository, data);
-      console.log(response);
       return response;
     } catch (error) {
       return error as NotificationErrorResponse;

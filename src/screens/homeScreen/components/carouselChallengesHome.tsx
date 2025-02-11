@@ -1,26 +1,30 @@
-import React, { useRef } from 'react';
+import React, {useRef} from 'react';
 
 import moment from 'moment';
-import { View, StyleSheet, Text } from 'react-native';
-import Carousel, { ICarouselInstance } from 'react-native-reanimated-carousel';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import Carousel, {ICarouselInstance} from 'react-native-reanimated-carousel';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 
 import ChallengeCard from './ChallengeCard';
-import { RootState } from '../../../redux/store';
-import { width, height, fontBold, fontLight } from '../../../styles/globalStyles';
-
-
+import useNavigation from '../../../hook/useNavigation';
+import {RootState} from '../../../redux/store';
+import {width, height, fontBold, fontLight} from '../../../styles/globalStyles';
 
 const ChallengeCarousel = () => {
   const userId = useSelector((state: RootState) => state.token.userId);
   const challengesInProgress = useSelector(
-    (state: RootState) => state.challenge.challengesInProgress
+    (state: RootState) => state.challenge.challengesInProgress,
   );
+  const navigation = useNavigation();
+
+  const handleGoToChallenges = () => {
+    navigation.navigate('Challenges');
+  };
 
   const challenges = challengesInProgress
-    .filter((challenge) => challenge.userId === userId)
-    .map((progress) => ({
+    .filter(challenge => challenge.userId === userId)
+    .map(progress => ({
       title: `${progress.title} - ${
         7 - moment().diff(moment(progress.startDate), 'days')
       } days left`,
@@ -42,9 +46,11 @@ const ChallengeCarousel = () => {
         <Text style={styles.title}>Your Challenges</Text>
       </View>
       {challenges.length === 0 ? (
-        <Text style={styles.noChallengesText}>
-          You haven't started any challenges yet.
+      <TouchableOpacity onPress={handleGoToChallenges}>
+          <Text style={styles.noChallengesText}>
+          You haven't started any challenges yet. Click here to begin!
         </Text>
+      </TouchableOpacity>
       ) : challenges.length === 1 ? (
         <View style={styles.singleChallengeContainer}>
           <ChallengeCard
@@ -57,7 +63,7 @@ const ChallengeCarousel = () => {
         <Carousel
           ref={carouselRef}
           data={challenges}
-          renderItem={({ item }) => (
+          renderItem={({item}) => (
             <ChallengeCard
               title={item.title}
               imageSource={item.imageSource}
@@ -116,7 +122,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: width * 0.14,
     top: width * 0.25,
-    transform: [{ translateY: -15 }],
+    transform: [{translateY: -15}],
   },
   singleChallengeContainer: {
     marginRight: width * 0.2,

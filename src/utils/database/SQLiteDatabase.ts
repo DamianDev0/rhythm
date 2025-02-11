@@ -8,14 +8,11 @@ const database = SQLite.openDatabase(
     location: 'default',
   },
   () => {
-    console.log('Database opened successfully');
     database.transaction(tx => {
       tx.executeSql(
         HabitTable,
         [],
         () => {
-          console.log('Table "habits" created successfully');
-          console.log('table', HabitTable);
         },
         error => {
           console.error('Error creating table "habits":', error);
