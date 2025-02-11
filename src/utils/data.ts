@@ -20,7 +20,7 @@ export const challenges = [
       },
       {time: '15:00', title: 'Snack', description: 'A handful of nuts'},
       {
-        time: '19:00',
+        time: '20:05',
         title: 'Dinner',
         description: 'Vegetable stir-fry with quinoa',
       },
@@ -68,12 +68,12 @@ export const challenges = [
         description: '5 minutes of deep breathing',
       },
       {
-        time: '14:00',
+        time: '20:15',
         title: 'Afternoon Session',
         description: '15 minutes of guided meditation',
       },
       {
-        time: '21:00',
+        time: '20:17',
         title: 'Night Meditation',
         description: '10 minutes of relaxation',
       },

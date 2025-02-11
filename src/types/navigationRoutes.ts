@@ -4,7 +4,7 @@ export type NavigationRoutes = {
   SignUp: undefined;
   Onboarding: undefined;
   HomeTab: undefined;
-  Screen1: undefined;
+  Habits: undefined;
   Chart: undefined;
   Challenges: undefined;
   ChallengesDetails: {

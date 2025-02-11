@@ -13,6 +13,7 @@ export const useChallengeStatus = (
   challengeId: string,
   imageSource: any,
   title: string,
+  timeline: {time: string; title: string; description: string}[],
 ) => {
   const dispatch = useDispatch();
   const userId = useSelector((state: RootState) => state.token.userId);
@@ -36,25 +37,28 @@ export const useChallengeStatus = (
     }
   }, [challengesInProgress, challengeId, userId]);
 
-  const sendNotification = async () => {
+  const sendScheduledNotifications = async () => {
     if (!oneSignalPlayerId) {
       console.warn('No OneSignal ID found for the user.');
       return;
     }
 
-    const notificationData: NotificationRequest = {
-      title: 'New Challenge 🎯',
-      message: `You started the challenge: ${title}! 🚀`,
-      oneSignalIds: [oneSignalPlayerId],
-    };
+    for (const event of timeline) {
+      const notificationData: NotificationRequest = {
+        title: `Reminder: ${event.title} ⏰`,
+        message: event.description,
+        oneSignalIds: [oneSignalPlayerId],
+        scheduleOptions: {
+          delayedOption: 'timezone',
+          deliveryTimeOfDay: event.time,
+        },
+      };
 
-    try {
-      const response = await NotificationController.SendMessage(
-        notificationData,
-      );
-      console.log('Notification sent:', response);
-    } catch (error) {
-      console.error('Error sending notification:', error);
+      try {
+        await NotificationController.SendMessage(notificationData);
+      } catch (error) {
+        console.error('Error sending notification:', error);
+      }
     }
   };
 
@@ -70,17 +74,17 @@ export const useChallengeStatus = (
         CustomToast({
           type: 'info',
           text1: 'Info',
-          text2: 'You finished this challenge',
+          text2: 'You have finished this challenge',
           position: 'top',
         });
       } else {
         dispatch(startChallenge({id: challengeId, imageSource, title, userId}));
-        await sendNotification();
+        await sendScheduledNotifications();
         navigation.navigate('Home');
         CustomToast({
           type: 'success',
           text1: 'Success',
-          text2: 'You started a new challenge',
+          text2: 'You have started a new challenge',
           position: 'top',
         });
       }

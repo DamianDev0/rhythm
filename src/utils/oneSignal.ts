@@ -13,7 +13,6 @@ export const initializeOneSignal = () => {
       const onesignalId = await OneSignal.User.getOnesignalId();
       if (onesignalId) {
         store.dispatch(setOneSignalPlayerId(onesignalId));
-        console.log(`OneSignal ID saved in Redux: ${onesignalId}`);
       } else {
         console.warn('Unable to retrieve OneSignal ID.');
       }

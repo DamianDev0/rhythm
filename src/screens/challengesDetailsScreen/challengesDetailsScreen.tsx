@@ -28,7 +28,7 @@ const ChallengesDetailsScreen = () => {
   };
 
   const {isChallengeInProgress, toggleChallengeStatus, loading} =
-    useChallengeStatus(item.id, item.imageSource, item.title);
+    useChallengeStatus(item.id, item.imageSource, item.title, item.timeline);
 
   return (
     <ImageBackground
@@ -88,7 +88,7 @@ const ChallengesDetailsScreen = () => {
           color="#fff"
           backgroundColor="#000"
         />
-         {loading && <Loader />}
+        {loading && <Loader />}
       </View>
     </ImageBackground>
   );
