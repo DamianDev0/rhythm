@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <!-- Agrega otros permisos necesarios aquí -->
 
     <application
         android:name=".MainApplication"
@@ -10,10 +11,12 @@
         android:allowBackup="false"
         android:theme="@style/AppTheme"
         android:supportsRtl="true">
-
+        
         <service
             android:name="com.onesignal.OneSignalPushService"
             android:exported="false"/>
+
+        <!-- Agrega otros servicios necesarios aquí -->
 
         <activity
             android:name=".MainActivity"
