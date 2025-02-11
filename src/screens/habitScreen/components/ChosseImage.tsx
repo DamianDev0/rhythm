@@ -38,7 +38,7 @@ const ChosseImage = ({
 
       <BottomSheet
         isVisible={modalVisible}
-        backgroundColor="#f3ede7"
+        backgroundColor="#eacbaf"
         onClose={() => setModalVisible(false)}>
         <FlatList
           data={images}

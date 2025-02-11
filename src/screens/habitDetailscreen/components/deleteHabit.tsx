@@ -38,7 +38,7 @@ const DeleteHabit: React.FC<DeleteHabitProps> = ({habitId}) => {
         isVisible={modalVisible}
         onClose={toggleModal}
         height={500}
-        backgroundColor="#f3ede7">
+        backgroundColor="#eacbaf">
         <Image
           source={require('../../../assets/img/delete.png')}
           style={styles.image}
