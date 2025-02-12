@@ -35,7 +35,7 @@ const Streak: React.FC<StreakProps> = ({streak}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.59,
+    flex: 0.53,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: width * 0.06,
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: width * 0.7,
-    height: height * 0.163,
+    height: height * 0.18,
     resizeMode: 'contain',
   },
 });

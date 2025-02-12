@@ -16,7 +16,7 @@ const TabBarIcon: React.FC<TabBarIconProps> = ({routeName}) => {
       imageSource = require('../../assets/img/home.png');
       break;
     case 'Habits':
-      imageSource = require('../../assets/img/calendar2.png');
+      imageSource = require('../../assets/img/frecuency.png');
       break;
     case 'Chart':
       imageSource = require('../../assets/img/chart.png');
@@ -25,7 +25,7 @@ const TabBarIcon: React.FC<TabBarIconProps> = ({routeName}) => {
       imageSource = require('../../assets/img/challenges.png');
       break;
     default:
-      imageSource = require('../../assets/img/Calendar.png');
+      imageSource = require('../../assets/img/frecuency.png');
   }
 
   return <Image source={imageSource} style={[styles.icon]} />;

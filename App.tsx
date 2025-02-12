@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 
 import {StyleSheet} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import Toast from 'react-native-toast-message';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 
@@ -21,6 +22,7 @@ const App = () => {
         persistor={persistor}>
         <GestureHandlerRootView style={styles.flex}>
           <MainRoutes />
+          <Toast />
         </GestureHandlerRootView>
       </PersistGate>
     </Provider>

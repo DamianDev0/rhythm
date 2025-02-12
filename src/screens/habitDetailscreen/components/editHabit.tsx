@@ -54,7 +54,7 @@ const EditHabit: React.FC<EditHabitProps> = ({habitId, habitData}) => {
         isVisible={modalVisible}
         onClose={toggleModal}
         height={600}
-        backgroundColor="#f3ede7">
+        backgroundColor="#eacbaf">
         <Image
           source={require('../../../assets/img/edit.png')}
           style={styles.image}

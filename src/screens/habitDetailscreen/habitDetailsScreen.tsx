@@ -43,6 +43,7 @@ const HabitDetailsScreen = () => {
         <Streak streak={streak} />
         <Calendar
           style={styles.calendar}
+          markingType="period"
           markedDates={markedDates}
           onDayPress={(day: any) => markDayAsCompleted(day.dateString)}
           theme={{

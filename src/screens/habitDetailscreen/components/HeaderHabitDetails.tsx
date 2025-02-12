@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     gap: width * 0.03,
   },
   title: {
-    fontSize: 15,
+    fontSize: 13,
     fontFamily: fontBold,
     color: '#000',
     marginBottom: 5,
