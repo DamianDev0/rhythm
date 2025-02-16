@@ -12,6 +12,8 @@ import ChallengesScreen from '../../screens/challengesScreen/challengesScreen';
 import ChartScreen from '../../screens/chartScreen/ChartScreen';
 import HabitScreen from '../../screens/habitScreen/habitScreen';
 import HomeScreen from '../../screens/homeScreen/homeScreen';
+import ImportDataScreen from '../../screens/importDataScreen/importDataScreen';
+import { width } from '../../styles/globalStyles';
 
 const PrivateTabs = () => {
   const renderTabBarIcon = ({
@@ -64,7 +66,7 @@ const PrivateTabs = () => {
         </TouchableOpacity>
       )}
       tabBar={renderTabBar}
-      width={395}
+      width={width}
       id="curvedBottomBar"
       borderColor="#000"
       borderWidth={1}
@@ -85,6 +87,12 @@ const PrivateTabs = () => {
         name="Chart"
         position="RIGHT"
         component={ChartScreen}
+        options={{headerShown: false}}
+      />
+      <CurvedBottomBar.Screen
+        name="ImportDataScreen"
+        position="RIGHT"
+        component={ImportDataScreen}
         options={{headerShown: false}}
       />
       <CurvedBottomBar.Screen
