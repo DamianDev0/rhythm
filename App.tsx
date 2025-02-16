@@ -14,7 +14,6 @@ const App = () => {
   useEffect(() => {
     initializeOneSignal();
   }, []);
-  //dnnded
   return (
     <Provider store={store}>
       <PersistGate

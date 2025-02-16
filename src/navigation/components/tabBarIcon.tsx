@@ -24,6 +24,9 @@ const TabBarIcon: React.FC<TabBarIconProps> = ({routeName}) => {
     case 'Challenges':
       imageSource = require('../../assets/img/challenges.png');
       break;
+    case 'ImportDataScreen':
+      imageSource = require('../../assets/img/file.png');
+      break;
     default:
       imageSource = require('../../assets/img/frecuency.png');
   }

@@ -21,8 +21,9 @@ export type NavigationRoutes = {
     image: string;
     streak: number;
     lastCompleted: string;
-    frequency: string
+    frequency: string;
   };
+  ImportDataScreen: undefined;
 };
 
 //   export type AllRoutes = NavigationRoutes & TabRoutes;
