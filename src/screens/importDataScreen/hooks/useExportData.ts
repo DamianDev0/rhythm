@@ -24,9 +24,17 @@ const useExportHabits = () => {
     if (Platform.OS === 'android' && Platform.Version >= 30) {
       try {
         const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+        );
+        if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
+          Alert.alert('Permission Denied', 'Access to Downloads is required.');
+          return false;
+        }
+
+        const writeGranted = await PermissionsAndroid.request(
           PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
         );
-        return granted === PermissionsAndroid.RESULTS.GRANTED;
+        return writeGranted === PermissionsAndroid.RESULTS.GRANTED;
       } catch (err) {
         console.warn('Error requesting permissions:', err);
         return false;
@@ -46,7 +54,6 @@ const useExportHabits = () => {
 
       const hasPermission = await requestStoragePermission();
       if (!hasPermission) {
-        Alert.alert('Permission Denied', 'Access to Downloads is required.');
         setLoading(false);
         return;
       }
@@ -76,11 +83,8 @@ const useExportHabits = () => {
       CustomToast({
         type: 'success',
         text1: 'Export Successful',
-        text2: 'File saved at:\n${filePath}',
+        text2: `File saved at:\n${filePath}`,
       });
-
-      console.log('saved the habits in' , filePath)
-
     } catch (error) {
       console.error('Error exporting habits:', error);
       Alert.alert('Error', 'Could not export habits.');

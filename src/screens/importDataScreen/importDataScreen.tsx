@@ -53,7 +53,6 @@ const ImportDataScreen = () => {
         title="Save Your Habits & Upload Your Habits"
         imageSource={require('../../assets/img/Saly-44.png')}
       />
-     
 
       <View style={styles.container}>
         <FlatList
@@ -70,10 +69,10 @@ const ImportDataScreen = () => {
             </TouchableOpacity>
           )}
         />
-         <HeaderComponent
-        title="Your habits will be saved in the download/rhythmApp"
-        imageSource={require('../../assets/img/Saly-23.png')}
-      />
+        <HeaderComponent
+          title="Your habits will be saved in the download/rhythmApp"
+          imageSource={require('../../assets/img/Saly-23.png')}
+        />
       </View>
     </ImageBackground>
   );
