@@ -1,6 +1,6 @@
-import React, {useCallback} from 'react';
+import React, { useCallback } from 'react';
 
-import {useFocusEffect} from '@react-navigation/native';
+import { useFocusEffect } from '@react-navigation/native';
 import {
   View,
   Text,
@@ -23,7 +23,7 @@ import {
 import useFetchHabits from '../hooks/useFetchHabits';
 
 const HabitsHome = () => {
-  const {habits, loading, error, fetchHabits} = useFetchHabits();
+  const { habits, loading, fetchHabits } = useFetchHabits();
   const navigation = useNavigation();
 
   const handleGoToCreateHabit = () => {
@@ -41,21 +41,23 @@ const HabitsHome = () => {
       <Text style={styles.heading}>Your Habits</Text>
       {loading ? (
         <Loader />
-      ) : error ? (
-        <Text style={styles.errorText}>{error}</Text>
       ) : habits.length === 0 ? (
         <View style={styles.emptyContainer}>
           <Image
             source={require('../../../assets/img/homeNotCreate.png')}
             style={styles.emptyImage}
           />
-         <TouchableOpacity onPress={handleGoToCreateHabit}><Text style={styles.emptyText}>No habits yet. Click here to create your first one!</Text></TouchableOpacity>
+          <TouchableOpacity onPress={handleGoToCreateHabit}>
+            <Text style={styles.emptyText}>
+              No habits yet. Click here to create your first one!
+            </Text>
+          </TouchableOpacity>
         </View>
       ) : (
         <FlatList
           data={habits}
           keyExtractor={item => item.id.toString()}
-          renderItem={({item}) => (
+          renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.card}
               onPress={() =>
@@ -69,7 +71,11 @@ const HabitsHome = () => {
                   frequency: item.frequency || '',
                 })
               }>
-              <Image source={{uri: item.image}} style={styles.image} />
+              {item.image ? (
+                <Image source={{ uri: item.image }} style={styles.image} />
+              ) : (
+                <View style={styles.imagePlaceholder} />
+              )}
               <View style={styles.textContainer}>
                 <Text style={styles.title}>{item.name}</Text>
                 <Text style={styles.description}>{item.description}</Text>
@@ -131,12 +137,17 @@ const styles = StyleSheet.create({
     width: width * 0.85,
     height: height * 0.09,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 2,
     elevation: 2,
   },
   image: {
+    width: width * 0.15,
+    height: height * 0.079,
+    borderRadius: 10,
+  },
+  imagePlaceholder: {
     width: width * 0.15,
     height: height * 0.079,
     borderRadius: 10,
