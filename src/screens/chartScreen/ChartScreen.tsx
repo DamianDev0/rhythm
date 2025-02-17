@@ -2,15 +2,18 @@ import React from 'react';
 
 import {ImageBackground, StyleSheet, View} from 'react-native';
 
-import HeaderChart from './components/HeaderChart';
 import PieChartComponent from './components/pieChart';
+import HeaderComponent from '../../components/HeaderComponent';
 
 const ChartScreen = () => {
   return (
     <ImageBackground
       source={require('../../assets/img/background.png')}
       style={styles.background}>
-      <HeaderChart />
+      <HeaderComponent
+        title="Keep moving forward and build on your progress!"
+        imageSource={require('../../assets/img/chartHeader.png')}
+      />
       <View style={styles.chartContainer}>
         <PieChartComponent />
       </View>
@@ -25,7 +28,6 @@ const styles = StyleSheet.create({
   },
   chartContainer: {
     flex: 1,
-
   },
 });
 
