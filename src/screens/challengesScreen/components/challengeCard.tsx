@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: fourColor,
     borderRadius: 10,
     overflow: 'hidden',
-    margin: 7,
+    margin: 8,
     elevation: 4,
     shadowColor: '#F87929',
     shadowOffset: {width: 0, height: 2},

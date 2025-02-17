@@ -79,11 +79,13 @@ const useExportHabits = () => {
         text2: 'File saved at:\n${filePath}',
       });
 
+      console.log('saved the habits in' , filePath)
+
     } catch (error) {
       console.error('Error exporting habits:', error);
       Alert.alert('Error', 'Could not export habits.');
     } finally {
-      setLoading(false);
+      setTimeout(() => setLoading(false), 1000);
     }
   };
 

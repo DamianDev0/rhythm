@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
   screenContainer: {
     flex: 0.9,
     paddingHorizontal: 0,
-    paddingTop: 7,
   },
   title: {
     fontSize: 13,
