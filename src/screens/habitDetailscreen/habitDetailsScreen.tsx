@@ -26,6 +26,7 @@ const HabitDetailsScreen = () => {
     habitId: item.id,
     initialStreak: item.streak,
     initialLastCompleted: item.lastCompleted,
+    frequency: item.frequency,
   });
 
   return (

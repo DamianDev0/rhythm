@@ -92,12 +92,17 @@ Rhythm is your ultimate companion for building a healthier and more productive l
 The first screen welcomes you and introduces the key features of **Rhythm**. Easily create and track your habits, stay consistent with streaks, and get personalized insights to improve your lifestyle.  
 
 <div style="display: flex; justify-content: space-evenly; gap: 10px;">
+
+  <img src="https://ucarecdn.com/5fbce023-6384-4e63-856c-42f6705783df/onboardingOne.jpg" alt="Welcome Screen" width="340" />
+  <img src="https://ucarecdn.com/7aa129a1-faf0-410f-b4e5-231e18771899/onboardingTwo.jpg" alt="Welcome Screen" width="340" />
+  <img src="https://ucarecdn.com/dbcc0744-ed2c-4353-9169-0dd774d6ee42/OnboardingThree.jpg" alt="Welcome Screen" width="340" />
+  
   <img src="https://ucarecdn.com/5fbce023-6384-4e63-856c-42f6705783df/onboardingOne.jpg" alt="Welcome Screen" width="300" />
   <img src="https://ucarecdn.com/7aa129a1-faf0-410f-b4e5-231e18771899/onboardingTwo.jpg" alt="Welcome Screen" width="300" />
   <img src="https://ucarecdn.com/dbcc0744-ed2c-4353-9169-0dd774d6ee42/OnboardingThree.jpg" alt="Welcome Screen" width="300" />
 </div>  
 
----
+
 
 ## 🔐 **Authentication**  
 
@@ -115,10 +120,10 @@ Securely sign up or log in to your account. Use biometric authentication like fi
 Your home screen provides an overview of your habits and progress. Easily create and track new habits, set challenges for personal growth, and stay motivated with daily streaks.  
 
 <div style="display: flex; justify-content: space-evenly; gap: 10px;">
-  <img src="https://ucarecdn.com/a7517ff8-a15a-4830-81f8-df4457c7c929/HomeScreenWithout.jpg" alt="empty habits" width="300" />
-  <img src="https://ucarecdn.com/67105b38-1cae-4ce3-bd69-e9afe96d6925/HabitScreen.jpg" alt="habits" width="300" />
-  <img src="https://ucarecdn.com/6e587687-154e-4dac-b026-2402f0e1ddd1/ChallengesScreen.jpg" alt="challenges" width="300" />
-  <img src="https://ucarecdn.com/e9179d2e-6dd6-425d-8a69-9d6fff682466/HomeScreen.jpg" alt="home" width="300" />
+  <img src="https://ucarecdn.com/a7517ff8-a15a-4830-81f8-df4457c7c929/HomeScreenWithout.jpg" alt="empty habits" width="250" />
+  <img src="https://ucarecdn.com/67105b38-1cae-4ce3-bd69-e9afe96d6925/HabitScreen.jpg" alt="habits" width="250" />
+  <img src="https://ucarecdn.com/6e587687-154e-4dac-b026-2402f0e1ddd1/ChallengesScreen.jpg" alt="challenges" width="250" />
+  <img src="https://ucarecdn.com/e9179d2e-6dd6-425d-8a69-9d6fff682466/HomeScreen.jpg" alt="home" width="250" />
 </div>  
 
 ---
@@ -128,10 +133,10 @@ Your home screen provides an overview of your habits and progress. Easily create
 In this section, you can create, edit, and track your habits and challenges in detail. Add descriptions, set reminders, and view progress updates to stay on top of your personal goals.  
 
 <div style="display: flex; justify-content: space-evenly; gap: 10px;">
-  <img src="https://ucarecdn.com/8c6f9adc-ea8e-4793-b076-f69eb2c8fbbb/HabitDetail.jpg" alt="habit details" width="300" />
-  <img src="https://ucarecdn.com/5d04d849-bdbb-4b97-8d1e-b9098c51ce62/DeleteHabit.jpg" alt="delete habit" width="300" />
-  <img src="https://ucarecdn.com/db1504a4-a3f4-4d05-a9c6-5b9f74a6d6ca/editHabit.jpg" alt="edit habit" width="300" />
-  <img src="https://ucarecdn.com/2f927881-d327-467d-a163-a4428d807d10/ChallengeDetail.jpg" alt="challenge details" width="300" />
+  <img src="https://ucarecdn.com/8c6f9adc-ea8e-4793-b076-f69eb2c8fbbb/HabitDetail.jpg" alt="habit details" width="250" />
+  <img src="https://ucarecdn.com/5d04d849-bdbb-4b97-8d1e-b9098c51ce62/DeleteHabit.jpg" alt="delete habit" width="250" />
+  <img src="https://ucarecdn.com/db1504a4-a3f4-4d05-a9c6-5b9f74a6d6ca/editHabit.jpg" alt="edit habit" width="250" />
+  <img src="https://ucarecdn.com/2f927881-d327-467d-a163-a4428d807d10/ChallengeDetail.jpg" alt="challenge details" width="250" />
 </div>  
 
 ---
