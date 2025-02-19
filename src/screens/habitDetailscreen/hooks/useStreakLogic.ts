@@ -9,6 +9,7 @@ interface StreakLogicProps {
   habitId: number;
   initialStreak: number;
   initialLastCompleted: string;
+  frequency: string;
 }
 
 interface MarkedDates {
@@ -24,6 +25,7 @@ const useStreakLogic = ({
   habitId,
   initialStreak,
   initialLastCompleted,
+  frequency,
 }: StreakLogicProps) => {
   const [streak, setStreak] = useState(initialStreak);
   const [lastCompleted, setLastCompleted] = useState(initialLastCompleted);
@@ -33,15 +35,28 @@ const useStreakLogic = ({
     if (lastCompleted) {
       updateMarkedDates();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastCompleted]);
+
+  const getNextValidDate = (date: string) => {
+    switch (frequency) {
+      case 'daily':
+        return moment(date).add(1, 'days').format('YYYY-MM-DD');
+      case 'weekly':
+        return moment(date).add(1, 'weeks').format('YYYY-MM-DD');
+      case 'biweekly':
+        return moment(date).add(15, 'days').format('YYYY-MM-DD');
+      case 'monthly':
+        return moment(date).add(1, 'months').format('YYYY-MM-DD');
+      default:
+        return moment(date).add(1, 'days').format('YYYY-MM-DD');
+    }
+  };
 
   const markDayAsCompleted = async (date: string) => {
     const today = moment().format('YYYY-MM-DD');
     const lastStreakDay = moment(lastCompleted).format('YYYY-MM-DD');
-    const nextValidDay = moment(lastCompleted)
-      .add(1, 'days')
-      .format('YYYY-MM-DD');
+    const nextValidDay = getNextValidDate(lastCompleted);
 
     if (moment(date).isAfter(today)) {
       CustomToast({
@@ -103,8 +118,10 @@ const useStreakLogic = ({
     let updatedDates: MarkedDates = {};
     let startDate = moment(initialLastCompleted);
     const today = moment();
+    const futureDays = 30;
 
-    while (startDate.isSameOrBefore(today, 'day')) {
+
+    for (let i = 0; i <= futureDays; i++) {
       const dateStr = startDate.format('YYYY-MM-DD');
       updatedDates[dateStr] = {
         color: '#a9dfbf',
@@ -112,8 +129,11 @@ const useStreakLogic = ({
         startingDay: startDate.isSame(moment(initialLastCompleted), 'day'),
         endingDay: startDate.isSame(today, 'day'),
       };
-      startDate.add(1, 'day');
+
+      const nextDateStr = getNextValidDate(startDate.format('YYYY-MM-DD'));
+      startDate = moment(nextDateStr);
     }
+
 
     if (newDate) {
       updatedDates[newDate] = {
