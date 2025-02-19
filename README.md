@@ -1,79 +1,148 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# Rhythm
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Metro Server
+Rhythm is healthy habit management app designed to help you build and maintain positive routines. It allows you to track your streaks, set challenges, and view detailed statistics on your progress. With Rhythm, you can save your habits on your device, load them whenever needed, and receive personalized notifications to keep you motivated.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Installation
 
-To start Metro, run the following command from the _root_ of your React Native project:
 
-```bash
-# using npm
-npm start
+## Installation and Execution Instructions
 
-# OR using Yarn
-yarn start
-```
+1. **Prerequisites**  
+   Ensure you have a React Native development environment properly configured on your system. This includes:  
+   - Node.js installed.  
+   - Android Studio and emulator or a connected Android device.  
+   - React Native CLI or Expo CLI (depending on your project setup).  
 
-## Step 2: Start your Application
+2. **Steps to Run the Application**  
+   Follow these steps to install and run the project:
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+   ```bash
+   # Clone the project repository
+   git clone https://github.com/DamianDev0/rhythm.git
 
-### For Android
+   # Navigate to the project directory
+   cd Rhythm
 
-```bash
-# using npm
-npm run android
+   # Install the dependencies
+   npm install
 
-# OR using Yarn
-yarn android
-```
+   # Run the application on an Android emulator or device
+   npm run android
 
-### For iOS
+## Main features
+# Rhythm App Features
 
-```bash
-# using npm
-npm run ios
+Discover the powerful functionalities of **Rhythm**, designed to help you build and maintain healthy habits with ease.
 
-# OR using Yarn
-yarn ios
-```
+---
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## 🌟 **Main Features**
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+### 🛠️ **1. Onboarding**  
+   - 🎯 A welcoming and intuitive onboarding process.  
+   - 🚀 Guides new users through the app’s core functionalities.  
+   - 📖 Provides a quick overview of managing habits effectively.  
 
-## Step 3: Modifying your App
+---
 
-Now that you have successfully run the app, let's modify it.
+### 🔐 **2. Login and Register**  
+   - ✅ **Secure Authentication**: Log in or register using email and password.   
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+---
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+### ✏️ **3. Habit Management (CRUD)**  
+   Gain full control over your habits:  
+   - **Create**: Add new habits with customizable details.  
+   - **Read**: Track your daily, weekly, or monthly progress.  
+   - **Update**: Modify habit details as your routine evolves.  
+   - **Delete**: Remove habits that no longer serve your goals.  
 
-## Congratulations! :tada:
+---
 
-You've successfully run and modified your React Native App. :partying_face:
+### 📊 **4. Statistics & Data Management**  
+   - 📈 Track your progress with interactive charts.  
+   - 🔄 Export and import your habit data for easy backup and transfer.  
+   - 🏆 View performance insights to identify areas of improvement.  
 
-### Now what?
+---
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+### 📅 **5. Challenges & Goal Setting**  
+   - 🎯 Set personalized habit challenges to stay motivated.  
+   - ⏳ Track your consistency with daily, weekly, and monthly streaks.  
+   - 🔥 Receive rewards and badges for achieving milestones.  
 
-# Troubleshooting
+---
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+### 🔔 **6. Personalized Notifications**  
+   - ⏰ Get reminders to stay consistent with your habits.  
+   - 🛠️ Customize notification frequency and timing.  
+   - 🎉 Motivational alerts to celebrate progress and keep you engaged.  
 
-# Learn More
+---
 
-To learn more about React Native, take a look at the following resources:
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Rhythm is your ultimate companion for building a healthier and more productive lifestyle! 🚀  
+
+## Screens
+
+## 🚀 **Onboarding**  
+
+The first screen welcomes you and introduces the key features of **Rhythm**. Easily create and track your habits, stay consistent with streaks, and get personalized insights to improve your lifestyle.  
+
+<div style="display: flex; justify-content: space-evenly; gap: 10px;">
+  <img src="https://ucarecdn.com/5fbce023-6384-4e63-856c-42f6705783df/onboardingOne.jpg" alt="Welcome Screen" width="400" />
+  <img src="https://ucarecdn.com/7aa129a1-faf0-410f-b4e5-231e18771899/onboardingTwo.jpg" alt="Welcome Screen" width="400" />
+  <img src="https://ucarecdn.com/dbcc0744-ed2c-4353-9169-0dd774d6ee42/OnboardingThree.jpg" alt="Welcome Screen" width="400" />
+</div>  
+
+---
+
+## 🔐 **Authentication**  
+
+Securely sign up or log in to your account. Use biometric authentication like fingerprint or face recognition for quick and easy access, or opt for traditional email and password login.  
+
+<div style="display: flex; justify-content: space-evenly; gap: 10px;">
+  <img src="https://ucarecdn.com/9bca56aa-f6ef-48be-bcd5-d46b0ebb1dbb/LoginScreen.jpg" alt="login" width="400" />
+  <img src="https://ucarecdn.com/9ac0bcb5-08a6-4b33-b10f-d24ae778f661/RegisterScreen.jpg" alt="signup" width="400" />
+</div>  
+
+---
+
+## 🏠 **Home, Habits & Challenges**  
+
+Your home screen provides an overview of your habits and progress. Easily create and track new habits, set challenges for personal growth, and stay motivated with daily streaks.  
+
+<div style="display: flex; justify-content: space-evenly; gap: 10px;">
+  <img src="https://ucarecdn.com/a7517ff8-a15a-4830-81f8-df4457c7c929/HomeScreenWithout.jpg" alt="empty habits" width="300" />
+  <img src="https://ucarecdn.com/67105b38-1cae-4ce3-bd69-e9afe96d6925/HabitScreen.jpg" alt="habits" width="300" />
+  <img src="https://ucarecdn.com/6e587687-154e-4dac-b026-2402f0e1ddd1/ChallengesScreen.jpg" alt="challenges" width="300" />
+  <img src="https://ucarecdn.com/e9179d2e-6dd6-425d-8a69-9d6fff682466/HomeScreen.jpg" alt="home" width="300" />
+</div>  
+
+---
+
+## 🛠️ **Habit & Challenge Details**  
+
+In this section, you can create, edit, and track your habits and challenges in detail. Add descriptions, set reminders, and view progress updates to stay on top of your personal goals.  
+
+<div style="display: flex; justify-content: space-evenly; gap: 10px;">
+  <img src="https://ucarecdn.com/8c6f9adc-ea8e-4793-b076-f69eb2c8fbbb/HabitDetail.jpg" alt="habit details" width="300" />
+  <img src="https://ucarecdn.com/5d04d849-bdbb-4b97-8d1e-b9098c51ce62/DeleteHabit.jpg" alt="delete habit" width="300" />
+  <img src="https://ucarecdn.com/db1504a4-a3f4-4d05-a9c6-5b9f74a6d6ca/editHabit.jpg" alt="edit habit" width="300" />
+  <img src="https://ucarecdn.com/2f927881-d327-467d-a163-a4428d807d10/ChallengeDetail.jpg" alt="challenge details" width="300" />
+</div>  
+
+---
+
+## 📊 **Statistics & Data Management**  
+
+Monitor your progress with insightful charts that display habit streaks, consistency levels, and trends over time. Export and import your data for easy backup and seamless tracking across devices.  
+
+<div style="display: flex; justify-content: center; gap: 10px;">
+  <img src="https://ucarecdn.com/79d3e378-44e9-4e98-a5e6-99488621cf73/ExportAndImportScreen.jpg" alt="export and import" width="400" />
+  <img src="https://ucarecdn.com/118fad3a-412f-4372-83d8-ee0735119be8/ChartScreen.jpg" alt="progress charts" width="400" />
+</div>  
+
+---
