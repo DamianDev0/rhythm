@@ -22,6 +22,7 @@ export type NavigationRoutes = {
     streak: number;
     lastCompleted: string;
     frequency: string;
+    time: string
   };
   ImportDataScreen: undefined;
 };

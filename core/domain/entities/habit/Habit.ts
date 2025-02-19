@@ -7,4 +7,5 @@ export interface Habit {
   userId: string;
   streak: number
   lastCompleted: string
+  time: string;
 }

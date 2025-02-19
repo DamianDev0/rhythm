@@ -12,7 +12,7 @@ interface GenericButtonProps {
   height?: number;
   backgroundColor?: string;
   color?: string;
-  loading?: boolean;
+  fontSize?: number;
 }
 
 const GenericButton: React.FC<GenericButtonProps> = ({
@@ -23,6 +23,7 @@ const GenericButton: React.FC<GenericButtonProps> = ({
   height = 50,
   backgroundColor = '#007BFF',
   color = '#fff',
+  fontSize = 14,
 }) => {
   return (
     <TouchableOpacity
@@ -38,7 +39,7 @@ const GenericButton: React.FC<GenericButtonProps> = ({
           opacity: disabled ? 0.5 : 1,
         },
       ]}>
-      <Text style={[styles.buttonText, {color}]}>{title}</Text>
+      <Text style={[styles.buttonText, {color, fontSize}]}>{title}</Text>
     </TouchableOpacity>
   );
 };
@@ -51,15 +52,11 @@ const styles = StyleSheet.create({
     margin: 10,
     elevation: 5,
     shadowColor: '#000',
-    shadowOffset: {
-      width: 2,
-      height: 2,
-    },
+    shadowOffset: {width: 2, height: 2},
     shadowOpacity: 0.4,
     shadowRadius: 3.5,
   },
   buttonText: {
-    fontSize: 14,
     fontFamily: fontBold,
   },
 });

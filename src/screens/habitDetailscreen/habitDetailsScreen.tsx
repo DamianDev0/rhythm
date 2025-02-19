@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {useRoute} from '@react-navigation/native';
 import {View, StyleSheet, ImageBackground} from 'react-native';
@@ -7,6 +7,7 @@ import {Calendar} from 'react-native-calendars';
 import HeaderHabitDetails from './components/HeaderHabitDetails';
 import HeaderHabitEditAndDelete from './components/HeaderHabitEditAndDelete';
 import Streak from './components/Streak';
+import useScheduleNotification from './hooks/useScheduleNotification';
 import useStreakLogic from './hooks/useStreakLogic';
 import {fontBold, fourColor, width} from '../../styles/globalStyles';
 
@@ -20,6 +21,7 @@ const HabitDetailsScreen = () => {
     streak: number;
     lastCompleted: string;
     frequency: string;
+    time: string;
   };
 
   const {streak, markedDates, markDayAsCompleted} = useStreakLogic({
@@ -28,6 +30,15 @@ const HabitDetailsScreen = () => {
     initialLastCompleted: item.lastCompleted,
     frequency: item.frequency,
   });
+
+  const {scheduleNotification} = useScheduleNotification();
+
+  useEffect(() => {
+    if (item.name && item.time) {
+      scheduleNotification(item.name, item.time);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [item.name, item.time]);
 
   return (
     <ImageBackground

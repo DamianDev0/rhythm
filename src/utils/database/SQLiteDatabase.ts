@@ -12,8 +12,7 @@ const database = SQLite.openDatabase(
       tx.executeSql(
         HabitTable,
         [],
-        () => {
-        },
+        () => {},
         error => {
           console.error('Error creating table "habits":', error);
         },

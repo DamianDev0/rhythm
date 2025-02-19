@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
+import React, {useCallback} from 'react';
 
-import { useFocusEffect } from '@react-navigation/native';
+import {useFocusEffect} from '@react-navigation/native';
 import {
   View,
   Text,
@@ -23,7 +23,7 @@ import {
 import useFetchHabits from '../hooks/useFetchHabits';
 
 const HabitsHome = () => {
-  const { habits, loading, fetchHabits } = useFetchHabits();
+  const {habits, loading, fetchHabits} = useFetchHabits();
   const navigation = useNavigation();
 
   const handleGoToCreateHabit = () => {
@@ -57,7 +57,7 @@ const HabitsHome = () => {
         <FlatList
           data={habits}
           keyExtractor={item => item.id.toString()}
-          renderItem={({ item }) => (
+          renderItem={({item}) => (
             <TouchableOpacity
               style={styles.card}
               onPress={() =>
@@ -69,10 +69,11 @@ const HabitsHome = () => {
                   streak: item.streak,
                   lastCompleted: item.lastCompleted,
                   frequency: item.frequency || '',
+                  time: item.time || '',
                 })
               }>
               {item.image ? (
-                <Image source={{ uri: item.image }} style={styles.image} />
+                <Image source={{uri: item.image}} style={styles.image} />
               ) : (
                 <View style={styles.imagePlaceholder} />
               )}
@@ -137,7 +138,7 @@ const styles = StyleSheet.create({
     width: width * 0.85,
     height: height * 0.09,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.2,
     shadowRadius: 2,
     elevation: 2,

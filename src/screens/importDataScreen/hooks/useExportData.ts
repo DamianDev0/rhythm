@@ -63,6 +63,11 @@ const useExportHabits = () => {
         await RNFS.mkdir(folderPath);
       }
 
+      const fileExists = await RNFS.exists(filePath);
+      if (fileExists) {
+        await RNFS.unlink(filePath);
+      }
+
       const habits: Habit[] = await HabitController.GetAllHabits(userId);
 
       if (habits.length === 0) {
@@ -77,8 +82,6 @@ const useExportHabits = () => {
 
       const jsonContent = JSON.stringify(habits, null, 2);
       await RNFS.writeFile(filePath, jsonContent, 'utf8');
-
-      await RNFS.readFile(filePath, 'utf8');
 
       CustomToast({
         type: 'success',

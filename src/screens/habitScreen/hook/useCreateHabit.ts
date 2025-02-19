@@ -17,6 +17,7 @@ const useCreateHabit = () => {
     description: '',
     frequency: '',
     image: '',
+    time: '',
   });
 
   const handleInputChange = (name: string, value: string) => {
@@ -40,6 +41,19 @@ const useCreateHabit = () => {
     });
   };
 
+  const handleTimeChange = (selectedTime: Date) => {
+    const formattedTime = selectedTime.toLocaleTimeString('es-ES', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    });
+
+    setHabitData({
+      ...habitData,
+      time: formattedTime,
+    });
+  };
+
   const handleSubmit = async () => {
     if (!token || !userId) {
       CustomToast({
@@ -55,7 +69,8 @@ const useCreateHabit = () => {
       !habitData.name ||
       !habitData.description ||
       !habitData.frequency ||
-      !habitData.image
+      !habitData.image ||
+      !habitData.time
     ) {
       CustomToast({
         type: 'error',
@@ -90,6 +105,7 @@ const useCreateHabit = () => {
           description: '',
           frequency: '',
           image: '',
+          time: '',
         });
       } else {
         CustomToast({
@@ -115,6 +131,7 @@ const useCreateHabit = () => {
     handleFrequencyChange,
     handleImageChange,
     handleSubmit,
+    handleTimeChange,
   };
 };
 
