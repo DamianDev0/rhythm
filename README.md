@@ -92,12 +92,17 @@ Rhythm is your ultimate companion for building a healthier and more productive l
 The first screen welcomes you and introduces the key features of **Rhythm**. Easily create and track your habits, stay consistent with streaks, and get personalized insights to improve your lifestyle.  
 
 <div style="display: flex; justify-content: space-evenly; gap: 10px;">
+
   <img src="https://ucarecdn.com/5fbce023-6384-4e63-856c-42f6705783df/onboardingOne.jpg" alt="Welcome Screen" width="340" />
   <img src="https://ucarecdn.com/7aa129a1-faf0-410f-b4e5-231e18771899/onboardingTwo.jpg" alt="Welcome Screen" width="340" />
   <img src="https://ucarecdn.com/dbcc0744-ed2c-4353-9169-0dd774d6ee42/OnboardingThree.jpg" alt="Welcome Screen" width="340" />
+  
+  <img src="https://ucarecdn.com/5fbce023-6384-4e63-856c-42f6705783df/onboardingOne.jpg" alt="Welcome Screen" width="300" />
+  <img src="https://ucarecdn.com/7aa129a1-faf0-410f-b4e5-231e18771899/onboardingTwo.jpg" alt="Welcome Screen" width="300" />
+  <img src="https://ucarecdn.com/dbcc0744-ed2c-4353-9169-0dd774d6ee42/OnboardingThree.jpg" alt="Welcome Screen" width="300" />
 </div>  
 
----
+
 
 ## 🔐 **Authentication**  
 
