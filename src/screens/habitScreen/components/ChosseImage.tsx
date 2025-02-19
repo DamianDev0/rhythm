@@ -61,19 +61,20 @@ const ChosseImage = ({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.4,
+    flex: 0.2,
     justifyContent: 'center',
     alignItems: 'center',
   },
   image: {
     width: width * 0.9,
-    height: height * 0.21,
+    height: height * 0.2,
     resizeMode: 'contain',
   },
   text: {
     color: '#FFF',
     fontSize: 12,
     fontFamily: fontLight,
+    marginBottom: width * 0.04,
   },
 });
 

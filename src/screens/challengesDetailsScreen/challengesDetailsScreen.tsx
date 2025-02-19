@@ -7,6 +7,7 @@ import Timeline from 'react-native-timeline-flatlist';
 
 import {useChallengeStatus} from './hook/useChallengeStatus';
 import GenericButton from '../../components/genericButton';
+import GoBackButton from '../../components/goBack';
 import Loader from '../../components/loader';
 import {
   fontBold,
@@ -35,6 +36,7 @@ const ChallengesDetailsScreen = () => {
       source={require('../../assets/img/background.png')}
       style={styles.background}>
       <View style={styles.container}>
+        <GoBackButton size={29} />
         <View style={styles.headerContainer}>
           <View style={styles.textContainer}>
             <Text style={styles.title}>{item.title}</Text>
@@ -114,6 +116,7 @@ const styles = StyleSheet.create({
     padding: width * 0.02,
     marginBottom: 20,
     height: height * 0.17,
+    marginTop: width * 0.03,
   },
   textContainer: {
     flex: 0.7,

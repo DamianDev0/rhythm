@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 
+import DateTimePicker from '@react-native-community/datetimepicker';
 import {
   View,
   StyleSheet,
@@ -13,10 +14,8 @@ import GenericDropdown from '../../../components/dropDown';
 import GenericButton from '../../../components/genericButton';
 import InputGeneric from '../../../components/genericInput';
 import {height, width} from '../../../styles/globalStyles';
-import { frequencyOptions } from '../../../utils/data';
+import {frequencyOptions} from '../../../utils/data';
 import useCreateHabit from '../hook/useCreateHabit';
-
-
 
 const FormHabit = () => {
   const {
@@ -25,7 +24,17 @@ const FormHabit = () => {
     handleSubmit,
     handleImageChange,
     handleFrequencyChange,
+    handleTimeChange,
   } = useCreateHabit();
+
+  const [showTimePicker, setShowTimePicker] = useState(false);
+
+  const handleTimeSelect = (event: any, selectedTime?: Date) => {
+    setShowTimePicker(false);
+    if (selectedTime) {
+      handleTimeChange(selectedTime);
+    }
+  };
 
   return (
     <KeyboardAvoidingView
@@ -66,6 +75,29 @@ const FormHabit = () => {
               iconDropdown={require('../../../assets/img/frecuency.png')}
               dropdownWidth={width * 0.85}
             />
+
+            <GenericButton
+              title={
+                habitData.time
+                  ? `Selected Time: ${habitData.time}  🕒`
+                  : 'Select Time'
+              }
+              onPress={() => setShowTimePicker(true)}
+              color="#FFF"
+              backgroundColor="#000"
+              fontSize={12}
+              width={width * 0.85}
+            />
+            {showTimePicker && (
+              <DateTimePicker
+                mode="time"
+                value={new Date()}
+                is24Hour={true}
+                display="default"
+                onChange={handleTimeSelect}
+              />
+            )}
+
             <View style={styles.buttonContainer}>
               <GenericButton
                 title="Save"
@@ -103,7 +135,7 @@ const styles = StyleSheet.create({
     gap: width * 0.04,
   },
   buttonContainer: {
-    marginTop: width * 0.05,
+    marginTop: width * 0.0,
     width: width * 0.8,
     justifyContent: 'center',
     alignItems: 'center',
