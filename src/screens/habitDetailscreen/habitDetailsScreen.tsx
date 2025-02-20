@@ -35,7 +35,7 @@ const HabitDetailsScreen = () => {
 
   useEffect(() => {
     if (item.name && item.time) {
-      scheduleNotification(item.name, item.time);
+      scheduleNotification(item.name, item.time, item.frequency);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [item.name, item.time]);

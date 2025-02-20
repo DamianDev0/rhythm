@@ -4,35 +4,47 @@ import moment from 'moment';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import Carousel, {ICarouselInstance} from 'react-native-reanimated-carousel';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
 import ChallengeCard from './ChallengeCard';
 import useNavigation from '../../../hook/useNavigation';
+import {finishChallenge} from '../../../redux/actions/actions';
 import {RootState} from '../../../redux/store';
 import {width, height, fontBold, fontLight} from '../../../styles/globalStyles';
 
 const ChallengeCarousel = () => {
+  const dispatch = useDispatch();
   const userId = useSelector((state: RootState) => state.token.userId);
   const challengesInProgress = useSelector(
     (state: RootState) => state.challenge.challengesInProgress,
   );
   const navigation = useNavigation();
+  const carouselRef = useRef<ICarouselInstance>(null);
 
   const handleGoToChallenges = () => {
     navigation.navigate('Challenges');
   };
 
-  const challenges = challengesInProgress
-    .filter(challenge => challenge.userId === userId)
-    .map(progress => ({
-      title: `${progress.title} - ${
-        7 - moment().diff(moment(progress.startDate), 'days')
-      } days left`,
-      imageSource: progress.imageSource,
-      status: 'In Progress',
-    }));
+  if (!userId) {
+    return;
+  }
 
-  const carouselRef = useRef<ICarouselInstance>(null);
+  const activeChallenges = challengesInProgress.filter(challenge => {
+    const daysLeft = 7 - moment().diff(moment(challenge.startDate), 'days');
+    if (daysLeft <= 0) {
+      dispatch(finishChallenge({challengeId: challenge.id, userId}));
+      return false;
+    }
+    return challenge.userId === userId;
+  });
+
+  const challenges = activeChallenges.map(progress => ({
+    title: `${progress.title} - ${
+      7 - moment().diff(moment(progress.startDate), 'days')
+    } days left`,
+    imageSource: progress.imageSource,
+    status: 'In Progress',
+  }));
 
   const goToNextChallenge = () => {
     if (carouselRef.current) {
@@ -46,11 +58,11 @@ const ChallengeCarousel = () => {
         <Text style={styles.title}>Your Challenges</Text>
       </View>
       {challenges.length === 0 ? (
-      <TouchableOpacity onPress={handleGoToChallenges}>
+        <TouchableOpacity onPress={handleGoToChallenges}>
           <Text style={styles.noChallengesText}>
-          You haven't started any challenges yet. Click here to begin!
-        </Text>
-      </TouchableOpacity>
+            You haven't started any challenges yet. Click here to begin!
+          </Text>
+        </TouchableOpacity>
       ) : challenges.length === 1 ? (
         <View style={styles.singleChallengeContainer}>
           <ChallengeCard
